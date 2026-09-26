@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Animal_Spa</RootNamespace>
+    <AssemblyName>Animal-Spa</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Asset\**\*.png" />
+    <Resource Include="Asset\font\*.ttf" />
+  </ItemGroup>
+
+</Project>
