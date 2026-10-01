@@ -5,38 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Animal_Spa"
         mc:Ignorable="d"
-        Title="Login" Height="1920" Width="1080">
-    <Grid Width="1920" Height="1080">
-        <Image Source="Asset/BACKGROUND-REGISTER-LEFT.jpg"
-               Stretch="Fill"
-               Panel.Zindex="0"/>
-        
-        <Image Source="Asset/BACKGROUND-REGISTER-RIGHT.jpg"
-               Stretch="Fill"
-               Panel.Zindex="1"/>
-
-        <Border Width="400" 
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Background="Transparent"
-                Panel.Zindex="2">
-
-                <Stack Panel>
-                    <TextBlock Text="USERLOGIN"
-                               FontWeight="Bold"
-                               HorizontalAlignment="Center"/>
-                    <TextBlock Text="Username"
-                               HorizontalAlignment="Left"/>
-                    <TextBox>
-                    <TextBlock Text="Password"
-                               HorizontalAlignment="Left"/>
-                    <PasswordBox>
-                    <Button Content="LOGIN">
-                    <TextBlock Text="Forget your pasword?"
-                               HorizontalAlignment="Left"/>
-                </Stack Panel>
-        </Border>
-
-    </Grid>
-
+        Title="Login" Height="1080" Width="1920">
+    <Image Margin="0,0,0,-6" Source="/Asset/BACKGROUND-login.jpg" Stretch="Fill" HorizontalAlignment="Center" Width="1920"/>
 </Window>
+    
