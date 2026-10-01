@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
@@ -9,8 +9,10 @@
     <RootNamespace>Animal_Spa</RootNamespace>
     <AssemblyName>Animal-Spa</AssemblyName>
   </PropertyGroup>
+
   <ItemGroup>
     <Resource Include="Asset\**\*.png" />
     <Resource Include="Asset\font\*.ttf" />
   </ItemGroup>
+
 </Project>
