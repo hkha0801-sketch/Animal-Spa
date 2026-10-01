@@ -10,7 +10,7 @@
     <AssemblyName>Animal-Spa</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <Resource Include="Asset\**\*.png" />
+    <Resource Include="Asset\**\*.jpg" />
     <Resource Include="Asset\font\*.ttf" />
   </ItemGroup>
 </Project>
