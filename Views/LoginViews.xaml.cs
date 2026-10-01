@@ -177,8 +177,18 @@ namespace Animal_Spa
              */
 
 
+            // TEMP: Trong giai đoạn dựng UI, STAFF sẽ mở Receptionist Dashboard để test.
+            // Khi backend login hoàn tất, thay bằng role thật trả về từ API.
+            if (_selectedRole == "Staff")
+            {
+                MainWindow mainWindow = new MainWindow("Receptionist");
+                mainWindow.Show();
+                Close();
+                return;
+            }
+
             MessageBox.Show(
-                $"Login as {_selectedRole}",
+                "Customer dashboard is not implemented yet.",
                 "Animal Spa",
                 MessageBoxButton.OK,
                 MessageBoxImage.Information);

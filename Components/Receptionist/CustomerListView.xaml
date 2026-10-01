@@ -1,0 +1,281 @@
+<UserControl x:Class="Animal_Spa.Components.Receptionist.CustomerListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             FontFamily="{StaticResource Baloo2}">
+
+    <UserControl.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#4EA6E8"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="12"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.88"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.72"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <!-- Khung thiết kế gốc của component trong Figma: 1770 x 1012 -->
+    <Viewbox Stretch="Uniform">
+        <Grid Width="1770" Height="1012" ClipToBounds="True">
+
+            <!-- Background đã có sẵn trong Asset -->
+            <Image Source="/Animal-Spa;component/Asset/BACKGROUND-COSTUME LIST.jpg"
+                   Stretch="Fill"/>
+
+            <Canvas>
+
+                <!-- ================= RECEPTIONIST PROFILE ================= -->
+                <Border Canvas.Left="55"
+                        Canvas.Top="78"
+                        Width="1010"
+                        Height="325"
+                        Background="#FAFAFA"
+                        BorderBrush="#A8CDE8"
+                        BorderThickness="12"
+                        CornerRadius="28">
+
+                    <Grid Margin="25">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="245"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Width="210"
+                                Height="210"
+                                CornerRadius="105"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                ClipToBounds="True"
+                                Background="#E9E9E9">
+                            <Image Source="/Animal-Spa;component/Asset/ICON-COSTUME.jpg"
+                                   Stretch="UniformToFill"/>
+                        </Border>
+
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <StackPanel VerticalAlignment="Center"
+                                        Margin="25,0,0,0">
+                                <TextBlock Text="KHA BÙI"
+                                           FontSize="54"
+                                           FontWeight="ExtraBold"
+                                           Foreground="#111111"/>
+
+                                <Border Background="#61B2EE"
+                                        CornerRadius="9"
+                                        HorizontalAlignment="Left"
+                                        Padding="11,3"
+                                        Margin="0,4,0,0">
+                                    <TextBlock Text="Receptionist"
+                                               FontSize="30"
+                                               FontWeight="SemiBold"
+                                               Foreground="#111111"/>
+                                </Border>
+                            </StackPanel>
+
+                            <Button Grid.Row="1"
+                                    Content="+ Add Customer"
+                                    Width="230"
+                                    Height="58"
+                                    HorizontalAlignment="Right"
+                                    FontSize="27"
+                                    Padding="8,0"
+                                    Style="{StaticResource RoundedButtonStyle}"
+                                    Click="AddCustomer_Click"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <!-- ================= SEARCH ================= -->
+                <Border Canvas.Left="1130"
+                        Canvas.Top="325"
+                        Width="510"
+                        Height="92"
+                        Background="White"
+                        CornerRadius="35">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="85"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Magnifier bằng Segoe MDL2 Assets -->
+                        <TextBlock Text="&#xE721;"
+                                   FontFamily="Segoe MDL2 Assets"
+                                   FontSize="45"
+                                   Foreground="#111111"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+
+                        <TextBox x:Name="SearchTextBox"
+                                 Grid.Column="1"
+                                 Background="Transparent"
+                                 BorderThickness="0"
+                                 FontSize="22"
+                                 Foreground="#303030"
+                                 VerticalContentAlignment="Center"
+                                 Padding="8,0,20,0"
+                                 TextChanged="SearchTextBox_TextChanged"/>
+
+                        <TextBlock x:Name="SearchPlaceholder"
+                                   Grid.Column="1"
+                                   Text="Search customer username ..."
+                                   FontSize="22"
+                                   Foreground="#A2A2A2"
+                                   VerticalAlignment="Center"
+                                   Margin="10,0,0,0"
+                                   IsHitTestVisible="False"/>
+                    </Grid>
+                </Border>
+
+                <!-- ================= CUSTOMER CARDS ================= -->
+                <ScrollViewer Canvas.Left="55"
+                              Canvas.Top="500"
+                              Width="1651"
+                              Height="500"
+                              HorizontalScrollBarVisibility="Auto"
+                              VerticalScrollBarVisibility="Disabled"
+                              PanningMode="HorizontalOnly">
+                    <Grid Width="1651">
+                        <ItemsControl x:Name="CustomerItemsControl"
+                                  ItemsSource="{Binding CustomersView}" Margin="24,0,-24,0">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Width="240"
+                                        Height="500"
+                                        Margin="12,0,12,0"
+                                        Padding="13"
+                                        Background="#A8CDEA"
+                                        CornerRadius="30">
+
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="180"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="58"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Border Grid.Row="0"
+                                                Width="155"
+                                                Height="155"
+                                                Background="#E7E7E7"
+                                                CornerRadius="78"
+                                                HorizontalAlignment="Center"
+                                                ClipToBounds="True">
+                                                <Image Source="/Animal-Spa;component/Asset/ICON-COSTUME.jpg"
+                                                   Stretch="UniformToFill"/>
+                                            </Border>
+
+                                            <TextBlock Grid.Row="1"
+                                                   Text="{Binding Name}"
+                                                   FontSize="50"
+                                                   FontWeight="ExtraBold"
+                                                   Foreground="#111111"
+                                                   HorizontalAlignment="Center"
+                                                   TextTrimming="CharacterEllipsis"/>
+
+                                            <TextBlock Grid.Row="2"
+                                                   Text="{Binding Phone}"
+                                                   FontSize="28"
+                                                   Foreground="#111111"
+                                                   HorizontalAlignment="Center"/>
+
+                                            <StackPanel Grid.Row="3"
+                                                    Orientation="Horizontal"
+                                                    HorizontalAlignment="Center"
+                                                    Margin="0,8,0,0">
+                                                <Image Source="/Animal-Spa;component/Asset/ICON-PET.jpg"
+                                                   Width="34"
+                                                   Height="25"
+                                                   Stretch="Uniform"/>
+                                                <TextBlock Text="{Binding PetCount, StringFormat={}x{0}}"
+                                                       FontSize="30"
+                                                       FontWeight="SemiBold"
+                                                       Margin="5,-2,0,0"/>
+                                            </StackPanel>
+
+                                            <Button Grid.Row="5"
+                                                Content="View Detail"
+                                                Tag="{Binding Id}"
+                                                Height="48"
+                                                Margin="0,5,0,0"
+                                                Background="White"
+                                                Foreground="#303030"
+                                                FontSize="28"
+                                                BorderThickness="0"
+                                                Cursor="Hand"
+                                                Click="ViewDetail_Click">
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border x:Name="DetailBorder"
+                                                            Background="{TemplateBinding Background}"
+                                                            CornerRadius="9">
+                                                            <ContentPresenter HorizontalAlignment="Center"
+                                                                          VerticalAlignment="Center"/>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="DetailBorder" Property="Background" Value="#F0F7FC"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </ScrollViewer>
+
+                <TextBlock x:Name="EmptyText"
+                           Canvas.Left="690"
+                           Canvas.Top="700"
+                           Width="500"
+                           Text="No customers found."
+                           FontSize="30"
+                           FontWeight="SemiBold"
+                           TextAlignment="Center"
+                           Foreground="#2F5E7E"
+                           Visibility="Collapsed"/>
+
+            </Canvas>
+        </Grid>
+    </Viewbox>
+</UserControl>

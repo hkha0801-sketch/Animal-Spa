@@ -1,28 +1,28 @@
 using System.Windows;
-using Animal_Spa.Services;
+using Animal_Spa.Views.Receptionist;
 
 namespace Animal_Spa
 {
     public partial class MainWindow : Window
     {
-        private readonly ApiClient _apiClient = new();
-
-        public MainWindow()
+        public MainWindow(string role = "Receptionist")
         {
             InitializeComponent();
+            LoadDashboard(role);
         }
 
-        private async void CheckApi_Click(
-            object sender,
-            RoutedEventArgs e)
+        private void LoadDashboard(string role)
         {
-            StatusText.Text = "Checking...";
+            switch (role)
+            {
+                case "Receptionist":
+                    MainContent.Content = new ReceptionistDashboard();
+                    break;
 
-            var result = await _apiClient.CheckHealthAsync();
-
-            StatusText.Text = result.Success
-                ? $"YES - {result.Message}"
-                : $"NO - {result.Message}";
+                default:
+                    MainContent.Content = new ReceptionistDashboard();
+                    break;
+            }
         }
     }
 }
