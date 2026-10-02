@@ -5,31 +5,21 @@ namespace Animal_Spa
 {
     public partial class LoginViews : Window
     {
-        // Role mặc định khi mở trang Login
         private string _selectedRole = "Customer";
 
-        // Trạng thái hiện / ẩn Password
         private bool _isPasswordVisible = false;
 
-
-        // Màu của tab đang được chọn
         private readonly SolidColorBrush ActiveColor =
             new SolidColorBrush(Color.FromRgb(131, 184, 228));
 
-
         private readonly SolidColorBrush TransparentColor =
             Brushes.Transparent;
-
 
         public LoginViews()
         {
             InitializeComponent();
         }
 
-
-        // =========================================================
-        // USER BUTTON
-        // =========================================================
         private void UserButton_Click(object sender, RoutedEventArgs e)
         {
             _selectedRole = "Customer";
@@ -43,10 +33,6 @@ namespace Animal_Spa
             StaffButton.Foreground = Brushes.White;
         }
 
-
-        // =========================================================
-        // STAFF BUTTON
-        // =========================================================
         private void StaffButton_Click(object sender, RoutedEventArgs e)
         {
             _selectedRole = "Staff";
@@ -60,18 +46,10 @@ namespace Animal_Spa
             UserButton.Foreground = Brushes.White;
         }
 
-
-        // =========================================================
-        // SHOW / HIDE PASSWORD
-        // =========================================================
         private void ShowPasswordButton_Click(object sender, RoutedEventArgs e)
         {
             if (_isPasswordVisible)
             {
-                // =================================================
-                // PASSWORD ĐANG HIỆN
-                // -> chuyển lại thành dạng ******
-                // =================================================
 
                 PasswordInput.Password = PasswordVisibleInput.Text;
 
@@ -86,10 +64,6 @@ namespace Animal_Spa
             }
             else
             {
-                // =================================================
-                // PASSWORD ĐANG ẨN
-                // -> hiện password thật
-                // =================================================
 
                 PasswordVisibleInput.Text = PasswordInput.Password;
 
@@ -100,7 +74,6 @@ namespace Animal_Spa
 
                 PasswordVisibleInput.Focus();
 
-                // Đưa con trỏ về cuối password
                 PasswordVisibleInput.CaretIndex =
                     PasswordVisibleInput.Text.Length;
 
@@ -108,27 +81,16 @@ namespace Animal_Spa
             }
         }
 
-
-        // =========================================================
-        // LOGIN BUTTON
-        // =========================================================
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string username = UsernameTextBox.Text.Trim();
 
-
-            // Lấy password đúng theo trạng thái hiện tại
             string password = _isPasswordVisible
                 ? PasswordVisibleInput.Text
                 : PasswordInput.Password;
 
-
             ErrorText.Text = "";
 
-
-            // =====================================================
-            // VALIDATE USERNAME
-            // =====================================================
             if (string.IsNullOrWhiteSpace(username))
             {
                 ErrorText.Text = "Please enter your username.";
@@ -138,14 +100,9 @@ namespace Animal_Spa
                 return;
             }
 
-
-            // =====================================================
-            // VALIDATE PASSWORD
-            // =====================================================
             if (string.IsNullOrWhiteSpace(password))
             {
                 ErrorText.Text = "Please enter your password.";
-
 
                 if (_isPasswordVisible)
                 {
@@ -156,29 +113,11 @@ namespace Animal_Spa
                     PasswordInput.Focus();
                 }
 
-
                 return;
             }
 
+            
 
-            /*
-             * TODO:
-             *
-             * Sau này gọi AuthService.LoginAsync() ở đây.
-             *
-             * username
-             * password
-             * _selectedRole
-             *
-             * _selectedRole có thể là:
-             *
-             * Customer
-             * Staff
-             */
-
-
-            // TEMP: Trong giai đoạn dựng UI, STAFF sẽ mở Receptionist Dashboard để test.
-            // Khi backend login hoàn tất, thay bằng role thật trả về từ API.
             if (_selectedRole == "Staff")
             {
                 MainWindow mainWindow = new MainWindow("Receptionist");

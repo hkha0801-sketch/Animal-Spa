@@ -1,0 +1,298 @@
+<UserControl x:Class="Animal_Spa.Components.Receptionist.AddPetView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             FontFamily="{StaticResource Baloo2}">
+
+    <UserControl.Resources>
+        <Style x:Key="FieldLabelStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#202020"/>
+            <Setter Property="Margin" Value="0,0,0,7"/>
+        </Style>
+
+        <Style x:Key="ActionButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="14">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.88"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.72"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="GenderRadioStyle" TargetType="RadioButton">
+            <Setter Property="Height" Value="58"/>
+            <Setter Property="Background" Value="#F7F7F7"/>
+            <Setter Property="Foreground" Value="#6F6F6F"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="12">
+                            <Grid Margin="18,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="42"/>
+                                </Grid.ColumnDefinitions>
+
+                                <ContentPresenter VerticalAlignment="Center"/>
+
+                                <Grid Grid.Column="1"
+                                      Width="28"
+                                      Height="28"
+                                      HorizontalAlignment="Right"
+                                      VerticalAlignment="Center">
+                                    <Ellipse Fill="#D8D8D8"/>
+                                    <Ellipse x:Name="CheckedDot"
+                                             Width="14"
+                                             Height="14"
+                                             Fill="#4EA6E8"
+                                             Visibility="Collapsed"/>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="CheckedDot" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#EFF6FB"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Viewbox Stretch="Uniform">
+        <Grid Width="1770" Height="840" Background="Transparent">
+            <Canvas>
+
+                <TextBlock Canvas.Left="70"
+                           Canvas.Top="18"
+                           Text="ADD PET"
+                           FontSize="28"
+                           FontWeight="SemiBold"
+                           Foreground="#6C6C6C"/>
+
+                <Border Canvas.Left="70"
+                        Canvas.Top="70"
+                        Width="1630"
+                        Height="743"
+                        CornerRadius="28"
+                        ClipToBounds="True">
+                    <Image Source="/Animal-Spa;component/Asset/BACKGROUND-ADD PET.jpg"
+                           Stretch="Fill"/>
+                </Border>
+
+                <Grid Canvas.Left="110"
+                      Canvas.Top="125"
+                      Width="1030"
+                      Height="600">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="125"/>
+                        <RowDefinition Height="125"/>
+                        <RowDefinition Height="125"/>
+                        <RowDefinition Height="125"/>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="500"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Pet Name*"
+                                       Style="{StaticResource FieldLabelStyle}"/>
+                            <Border Height="62"
+                                    Background="#F7F7F7"
+                                    CornerRadius="13">
+                                <TextBox x:Name="PetNameTextBox"
+                                         Background="Transparent"
+                                         BorderThickness="0"
+                                         Padding="18,0"
+                                         FontSize="22"
+                                         VerticalContentAlignment="Center"/>
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+                            <TextBlock Text="Species"
+                                       Style="{StaticResource FieldLabelStyle}"/>
+                            <Border Height="62"
+                                    Background="#F7F7F7"
+                                    CornerRadius="13">
+                                <TextBox x:Name="SpeciesTextBox"
+                                         Background="Transparent"
+                                         BorderThickness="0"
+                                         Padding="18,0"
+                                         FontSize="22"
+                                         VerticalContentAlignment="Center"/>
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+
+                    <StackPanel Grid.Row="1">
+                        <TextBlock Text="Gender"
+                                   Style="{StaticResource FieldLabelStyle}"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="310"/>
+                                <ColumnDefinition Width="35"/>
+                                <ColumnDefinition Width="310"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <RadioButton x:Name="MaleRadioButton"
+                                         Grid.Column="0"
+                                         GroupName="PetGender"
+                                         Content="Male"
+                                         Style="{StaticResource GenderRadioStyle}"/>
+
+                            <RadioButton x:Name="FemaleRadioButton"
+                                         Grid.Column="2"
+                                         GroupName="PetGender"
+                                         Content="Female"
+                                         Style="{StaticResource GenderRadioStyle}"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2">
+                        <TextBlock Text="Special"
+                                   Style="{StaticResource FieldLabelStyle}"/>
+                        <Border Height="62"
+                                Background="#F7F7F7"
+                                CornerRadius="13">
+                            <TextBox x:Name="SpecialTextBox"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     Padding="18,0"
+                                     FontSize="22"
+                                     VerticalContentAlignment="Center"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="3">
+                        <TextBlock Text="Birth Day"
+                                   Style="{StaticResource FieldLabelStyle}"/>
+                        <Border Width="470"
+                                Height="62"
+                                HorizontalAlignment="Left"
+                                Background="#F7F7F7"
+                                CornerRadius="13">
+                            <TextBox x:Name="BirthDayTextBox"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     Padding="18,0"
+                                     FontSize="22"
+                                     VerticalContentAlignment="Center"/>
+                        </Border>
+                    </StackPanel>
+
+                    <TextBlock x:Name="StatusText"
+                               Grid.Row="4"
+                               FontSize="19"
+                               Foreground="#2F6A91"
+                               VerticalAlignment="Center"
+                               TextWrapping="Wrap"/>
+                </Grid>
+
+                <Grid x:Name="UploadPhotoArea"
+                      Canvas.Left="1205"
+                      Canvas.Top="120"
+                      Width="445"
+                      Height="455"
+                      Cursor="Hand"
+                      ToolTip="Click to choose a pet photo"
+                      MouseLeftButtonUp="UploadPhotoArea_MouseLeftButtonUp">
+
+                    <Rectangle x:Name="UploadRectangle"
+                               Width="445"
+                               Height="455"
+                               RadiusX="39"
+                               RadiusY="39"
+                               Fill="#FFFFFF"
+                               Stroke="#6F6F6F"
+                               StrokeDashArray="7 5"
+                               StrokeThickness="3"/>
+
+                    <StackPanel x:Name="UploadFallback"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                IsHitTestVisible="False">
+                        <Border Width="250"
+                                Height="185"
+                                Background="#D9EEF8"
+                                CornerRadius="18">
+                            <StackPanel HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                <TextBlock Text="&#xE8B9;"
+                                           FontFamily="Segoe MDL2 Assets"
+                                           FontSize="66"
+                                           Foreground="#8AA7B8"
+                                           HorizontalAlignment="Center"/>
+                                <TextBlock Text="Upload Pet Photo"
+                                           FontSize="20"
+                                           Foreground="#7B939F"
+                                           HorizontalAlignment="Center"
+                                           Margin="0,8,0,0"/>
+                            </StackPanel>
+                        </Border>
+
+                        <TextBlock Text="Click the photo area again to replace it"
+                                   FontSize="16"
+                                   Foreground="#9BAEB8"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,10,0,0"/>
+                    </StackPanel>
+                </Grid>
+
+                <Button Canvas.Left="1205"
+                        Canvas.Top="615"
+                        Width="205"
+                        Content="Cancel"
+                        Background="#D9D9D9"
+                        Style="{StaticResource ActionButtonStyle}"
+                        Click="Cancel_Click"/>
+
+                <Button Canvas.Left="1445"
+                        Canvas.Top="615"
+                        Width="205"
+                        Content="Save"
+                        Background="#4EA6E8"
+                        Style="{StaticResource ActionButtonStyle}"
+                        Click="Save_Click"/>
+
+            </Canvas>
+        </Grid>
+    </Viewbox>
+</UserControl>

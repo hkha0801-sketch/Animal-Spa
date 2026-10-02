@@ -10,7 +10,6 @@
         <Grid Width="1920"
               Height="1080">
 
-            
             <Image Source="/Animal-Spa;component/Asset/BACKGROUND-LOGIN.jpg"
                    Stretch="Fill"
                    Panel.ZIndex="0"/>
@@ -37,7 +36,6 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-
 
                             <Button x:Name="UserButton"
                                     Grid.Column="0"
@@ -166,7 +164,6 @@
                                      FontSize="26"
                                      VerticalContentAlignment="Center"
                                      Visibility="Collapsed"/>
-
 
                             <Button x:Name="ShowPasswordButton"
                                     Width="45"

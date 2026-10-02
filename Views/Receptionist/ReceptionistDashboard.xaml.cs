@@ -13,13 +13,16 @@ namespace Animal_Spa.Views.Receptionist
 
             CustomerList.ViewDetailRequested += ShowCustomerDetail;
             CustomerList.AddCustomerRequested += ShowAddCustomer;
+
             AddCustomer.CancelRequested += HideAddCustomer;
+            CustomerDetail.AddPetRequested += ShowAddPet;
+            AddPet.CancelRequested += HideAddPet;
         }
 
         private void ShowAddCustomer()
         {
-            // Keep one contextual component open at a time.
             CustomerDetail.Visibility = Visibility.Collapsed;
+            AddPet.Visibility = Visibility.Collapsed;
             AddCustomer.Visibility = Visibility.Visible;
 
             Dispatcher.BeginInvoke(
@@ -38,11 +41,33 @@ namespace Animal_Spa.Views.Receptionist
 
         private void ShowCustomerDetail(int customerId)
         {
-            // If the user was adding a customer, switch context to detail view.
             AddCustomer.Visibility = Visibility.Collapsed;
+            AddPet.Visibility = Visibility.Collapsed;
 
             CustomerDetail.LoadCustomer(customerId);
             CustomerDetail.Visibility = Visibility.Visible;
+
+            Dispatcher.BeginInvoke(
+                new Action(() => CustomerDetail.BringIntoView()),
+                DispatcherPriority.Loaded);
+        }
+
+        private void ShowAddPet(int customerId)
+        {
+            AddCustomer.Visibility = Visibility.Collapsed;
+            CustomerDetail.Visibility = Visibility.Visible;
+
+            AddPet.PrepareForCustomer(customerId);
+            AddPet.Visibility = Visibility.Visible;
+
+            Dispatcher.BeginInvoke(
+                new Action(() => AddPet.BringIntoView()),
+                DispatcherPriority.Loaded);
+        }
+
+        private void HideAddPet()
+        {
+            AddPet.Visibility = Visibility.Collapsed;
 
             Dispatcher.BeginInvoke(
                 new Action(() => CustomerDetail.BringIntoView()),
