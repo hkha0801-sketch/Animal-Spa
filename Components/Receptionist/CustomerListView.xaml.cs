@@ -10,6 +10,7 @@ namespace Animal_Spa.Components.Receptionist
     public partial class CustomerListView : UserControl
     {
         public event Action<int>? ViewDetailRequested;
+        public event Action? AddCustomerRequested;
 
         public ObservableCollection<CustomerListItem> Customers { get; } = new();
         public ICollectionView CustomersView { get; }
@@ -69,11 +70,7 @@ namespace Animal_Spa.Components.Receptionist
 
         private void AddCustomer_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: Sau này mở/scroll tới AddCustomer component.
-            MessageBox.Show("Add Customer component will be connected here.",
-                "Animal Spa",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information);
+            AddCustomerRequested?.Invoke();
         }
 
         private void ViewDetail_Click(object sender, RoutedEventArgs e)

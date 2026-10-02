@@ -9,12 +9,25 @@
                   HorizontalScrollBarVisibility="Disabled">
         <StackPanel>
 
+            <!-- Component 01: Customer list -->
             <components:CustomerListView x:Name="CustomerList"
                                          Margin="30,30,30,30"/>
 
+            <!-- Component 02: Add Customer
+                 Hidden at startup; shown after + Add Customer is clicked. -->
+            <components:AddCustomerView x:Name="AddCustomer"
+                                        Visibility="Collapsed"
+                                        Margin="30,0,30,40"/>
+
+            <!-- Component 03: Customer detail
+                 Hidden at startup; shown after View Detail is clicked. -->
             <components:CustomerDetailView x:Name="CustomerDetail"
                                            Visibility="Collapsed"
                                            Margin="30,0,30,40"/>
+
+            <!-- Future components:
+                 Add Pet
+                 Booking / Service ... -->
 
         </StackPanel>
     </ScrollViewer>
