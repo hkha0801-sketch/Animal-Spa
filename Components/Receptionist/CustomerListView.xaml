@@ -42,7 +42,7 @@
         <Grid Width="1770" Height="1012" ClipToBounds="True">
 
             <!-- Background đã có sẵn trong Asset -->
-            <Image Source="/Animal-Spa;component/Asset/BACKGROUND-COSTUME LIST.jpg"
+            <Image Source="/Animal-Spa;component/Asset/BACKGROUND-COSTUMER LIST.jpg"
                    Stretch="Fill"/>
 
             <Canvas>
@@ -70,7 +70,7 @@
                                 VerticalAlignment="Center"
                                 ClipToBounds="True"
                                 Background="#E9E9E9">
-                            <Image Source="/Animal-Spa;component/Asset/ICON-COSTUME.jpg"
+                            <Image Source="/Animal-Spa;component/Asset/ICON-COSTUMER.jpg"
                                    Stretch="UniformToFill"/>
                         </Border>
 

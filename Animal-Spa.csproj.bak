@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<Resource Include="Asset\*.jpg" />
+	  <Resource Include="Asset\**\*.png" />
     <Resource Include="Asset\**\*.jpg" />
     <Resource Include="Asset\font\*.ttf" />
   </ItemGroup>

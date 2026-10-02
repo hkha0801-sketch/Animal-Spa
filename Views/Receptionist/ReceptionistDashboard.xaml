@@ -4,11 +4,9 @@
              xmlns:components="clr-namespace:Animal_Spa.Components.Receptionist"
              Background="#F7FBFE">
 
-    <!-- Đây sẽ là 1 trang dài chứa nhiều component của Receptionist -->
     <ScrollViewer VerticalScrollBarVisibility="Auto"
                   HorizontalScrollBarVisibility="Disabled">
         <StackPanel>
-            <!-- Component đầu tiên -->
             <components:CustomerListView Margin="30,30,30,30"/>
 
             <!-- Các component tiếp theo sẽ thêm phía dưới:
