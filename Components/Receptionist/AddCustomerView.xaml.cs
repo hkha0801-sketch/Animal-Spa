@@ -13,8 +13,6 @@ namespace Animal_Spa.Components.Receptionist
     {
         public event Action? CancelRequested;
 
-        // Kept for the future "create customer" task.
-        // Nothing is persisted yet.
         private string? _selectedPhotoPath;
 
         public AddCustomerView()
@@ -42,9 +40,6 @@ namespace Animal_Spa.Components.Receptionist
             }
             catch
             {
-                // The project snapshot used to build this component did not contain
-                // FRAME-UPLOAD.jpg. If the user's local Asset folder contains it,
-                // it is loaded automatically. Otherwise keep the safe fallback UI.
                 UploadFallback.Visibility = Visibility.Visible;
             }
         }
@@ -104,8 +99,6 @@ namespace Animal_Spa.Components.Receptionist
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            // UI foundation only. API/database creation will be connected later.
-            // Current values are intentionally left on screen for easy testing.
             StatusText.Text = "UI ready — Save is not connected to customer creation yet.";
         }
 

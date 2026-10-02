@@ -19,7 +19,6 @@ namespace Animal_Spa.Components.Receptionist
         {
             InitializeComponent();
 
-            // Mock data để dựng UI. Sau này thay bằng dữ liệu từ CustomerService/API.
             Customers.Add(new CustomerListItem { Id = 1, Name = "VÕ HẢI", Phone = "+84xxxxxx647", PetCount = 1 });
             Customers.Add(new CustomerListItem { Id = 2, Name = "VÕ HẢI", Phone = "+84xxxxxx647", PetCount = 1 });
             Customers.Add(new CustomerListItem { Id = 3, Name = "KHA BÙI", Phone = "+84xxxxxx647", PetCount = 3 });

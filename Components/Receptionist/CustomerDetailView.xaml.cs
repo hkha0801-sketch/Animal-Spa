@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,6 +8,8 @@ namespace Animal_Spa.Components.Receptionist
 {
     public partial class CustomerDetailView : UserControl
     {
+        public event Action<int>? AddPetRequested;
+
         public int? CurrentCustomerId { get; private set; }
 
         public CustomerDetailView()
@@ -105,11 +108,7 @@ namespace Animal_Spa.Components.Receptionist
         {
             if (CurrentCustomerId is int customerId)
             {
-                MessageBox.Show(
-                    $"Add Pet component will be connected for customer #{customerId}.",
-                    "Animal Spa",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information);
+                AddPetRequested?.Invoke(customerId);
             }
         }
     }

@@ -126,11 +126,9 @@ namespace Animal_Spa
                 return;
             }
 
-            MessageBox.Show(
-                "Customer dashboard is not implemented yet.",
-                "Animal Spa",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information);
+            MainWindow customerWindow = new MainWindow("Customer");
+            customerWindow.Show();
+            Close();
         }
     }
 }

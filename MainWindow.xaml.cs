@@ -1,5 +1,6 @@
 using System.Windows;
 using Animal_Spa.Views.Receptionist;
+using Animal_Spa.Views.Customer;
 
 namespace Animal_Spa
 {
@@ -17,6 +18,10 @@ namespace Animal_Spa
             {
                 case "Receptionist":
                     MainContent.Content = new ReceptionistDashboard();
+                    break;
+
+                case "Customer":
+                    MainContent.Content = new CustomerDashboard();
                     break;
 
                 default:
