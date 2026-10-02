@@ -6,7 +6,6 @@
         WindowStartupLocation="CenterScreen"
         Background="#F7FBFE">
 
-    <!-- Main shell: nội dung thay đổi theo role -->
     <Grid>
         <ContentControl x:Name="MainContent"/>
     </Grid>

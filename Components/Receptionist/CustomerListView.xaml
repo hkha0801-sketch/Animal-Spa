@@ -37,17 +37,14 @@
         </Style>
     </UserControl.Resources>
 
-    <!-- Khung thiết kế gốc của component trong Figma: 1770 x 1012 -->
     <Viewbox Stretch="Uniform">
         <Grid Width="1770" Height="1012" ClipToBounds="True">
 
-            <!-- Background đã có sẵn trong Asset -->
             <Image Source="/Animal-Spa;component/Asset/BACKGROUND-COSTUMER LIST.jpg"
                    Stretch="Fill"/>
 
             <Canvas>
 
-                <!-- ================= RECEPTIONIST PROFILE ================= -->
                 <Border Canvas.Left="55"
                         Canvas.Top="78"
                         Width="1010"
@@ -70,7 +67,7 @@
                                 VerticalAlignment="Center"
                                 ClipToBounds="True"
                                 Background="#E9E9E9">
-                            <Image Source="/Animal-Spa;component/Asset/ICON-COSTUMER.jpg"
+                            <Image Source="/Animal-Spa;component/Asset/ICON-COSTUMER.png"
                                    Stretch="UniformToFill"/>
                         </Border>
 
@@ -112,7 +109,6 @@
                     </Grid>
                 </Border>
 
-                <!-- ================= SEARCH ================= -->
                 <Border Canvas.Left="1130"
                         Canvas.Top="325"
                         Width="510"
@@ -125,7 +121,6 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <!-- Magnifier bằng Segoe MDL2 Assets -->
                         <TextBlock Text="&#xE721;"
                                    FontFamily="Segoe MDL2 Assets"
                                    FontSize="45"
@@ -154,7 +149,6 @@
                     </Grid>
                 </Border>
 
-                <!-- ================= CUSTOMER CARDS ================= -->
                 <ScrollViewer Canvas.Left="55"
                               Canvas.Top="500"
                               Width="1651"
@@ -197,7 +191,7 @@
                                                 CornerRadius="78"
                                                 HorizontalAlignment="Center"
                                                 ClipToBounds="True">
-                                                <Image Source="/Animal-Spa;component/Asset/ICON-COSTUME.jpg"
+                                                <Image Source="/Animal-Spa;component/Asset/ICON-COSTUMER.png"
                                                    Stretch="UniformToFill"/>
                                             </Border>
 
@@ -219,7 +213,7 @@
                                                     Orientation="Horizontal"
                                                     HorizontalAlignment="Center"
                                                     Margin="0,8,0,0">
-                                                <Image Source="/Animal-Spa;component/Asset/ICON-PET.jpg"
+                                                <Image Source="/Animal-Spa;component/Asset/ICON-PET.png"
                                                    Width="34"
                                                    Height="25"
                                                    Stretch="Uniform"/>
