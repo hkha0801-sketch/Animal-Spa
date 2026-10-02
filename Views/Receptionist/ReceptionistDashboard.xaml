@@ -50,8 +50,10 @@
             <components:CategoryView x:Name="Category"
                                      Margin="30,0,30,0"/>
 
-            <Border Style="{StaticResource SectionDividerStyle}"
-                    Margin="0,20,0,45"/>
+            <Border Style="{StaticResource SectionDividerStyle}"/>
+
+            <components:ServiceView x:Name="Service"
+                                    Margin="30,0,30,45"/>
 
         </StackPanel>
     </ScrollViewer>
