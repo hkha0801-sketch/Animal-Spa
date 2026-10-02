@@ -9,6 +9,8 @@ namespace Animal_Spa.Components.Receptionist
 {
     public partial class CustomerListView : UserControl
     {
+        public event Action<int>? ViewDetailRequested;
+
         public ObservableCollection<CustomerListItem> Customers { get; } = new();
         public ICollectionView CustomersView { get; }
 
@@ -78,11 +80,7 @@ namespace Animal_Spa.Components.Receptionist
         {
             if (sender is Button button && button.Tag is int customerId)
             {
-                // TODO: Sau này truyền customerId sang Customer Detail component.
-                MessageBox.Show($"View customer #{customerId}",
-                    "Animal Spa",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information);
+                ViewDetailRequested?.Invoke(customerId);
             }
         }
     }

@@ -40,7 +40,7 @@
     <Viewbox Stretch="Uniform">
         <Grid Width="1770" Height="1012" ClipToBounds="True">
 
-            <Image Source="/Animal-Spa;component/Asset/BACKGROUND - COSTUMER LIST.jpg"
+            <Image Source="/Animal-Spa;component/Asset/BACKGROUND-COSTUMER LIST.jpg"
                    Stretch="Fill"/>
 
             <Canvas>

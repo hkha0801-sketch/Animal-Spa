@@ -4,16 +4,18 @@
              xmlns:components="clr-namespace:Animal_Spa.Components.Receptionist"
              Background="#F7FBFE">
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto"
+    <ScrollViewer x:Name="DashboardScrollViewer"
+                  VerticalScrollBarVisibility="Auto"
                   HorizontalScrollBarVisibility="Disabled">
         <StackPanel>
-            <components:CustomerListView Margin="30,30,30,30"/>
 
-            <!-- Các component tiếp theo sẽ thêm phía dưới:
-                 Customer Detail
-                 Add Customer
-                 Pet Information
-                 Booking / Service ... -->
+            <components:CustomerListView x:Name="CustomerList"
+                                         Margin="30,30,30,30"/>
+
+            <components:CustomerDetailView x:Name="CustomerDetail"
+                                           Visibility="Collapsed"
+                                           Margin="30,0,30,40"/>
+
         </StackPanel>
     </ScrollViewer>
 </UserControl>
