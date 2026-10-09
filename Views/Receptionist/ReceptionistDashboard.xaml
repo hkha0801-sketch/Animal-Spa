@@ -54,7 +54,14 @@
 
             <components:ServiceView x:Name="Service"
                                     Visibility="Collapsed"
-                                    Margin="30,0,30,45"/>
+                                    Margin="30,0,30,0"/>
+
+            <Border Style="{StaticResource SectionDividerStyle}"
+                    Visibility="{Binding ElementName=ServiceDetail, Path=Visibility}"/>
+
+            <components:ServiceDetailView x:Name="ServiceDetail"
+                                          Visibility="Collapsed"
+                                          Margin="30,0,30,45"/>
 
         </StackPanel>
     </ScrollViewer>

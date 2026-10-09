@@ -3,30 +3,410 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              FontFamily="{StaticResource Baloo2}"
              Background="White">
+
+    <UserControl.Resources>
+        <Style x:Key="InfoRowStyle" TargetType="Border">
+            <Setter Property="Height" Value="58"/>
+            <Setter Property="Background" Value="#A8C9E8"/>
+            <Setter Property="CornerRadius" Value="24"/>
+            <Setter Property="Margin" Value="0,0,0,12"/>
+        </Style>
+
+        <Style x:Key="PriceCellStyle" TargetType="Button">
+            <Setter Property="Background" Value="#A8C9E8"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Foreground" Value="#151515"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="CellBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="CellBorder" Property="Background" Value="#8DBDE2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ActionButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="210"/>
+            <Setter Property="Height" Value="68"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ActionBorder"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="14">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ActionBorder" Property="Opacity" Value="0.9"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ActionBorder" Property="Opacity" Value="0.78"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
     <Viewbox Stretch="Uniform">
-        <Grid Width="1770"
-              Height="820"
-              Background="White">
-            <Canvas>
-                <Border Canvas.Left="0"
-                        Canvas.Top="0"
-                        Width="1250"
-                        Height="790"
-                        Background="#D9D9D9"
-                        CornerRadius="30"/>
-                <Border Canvas.Left="1335"
-                        Canvas.Top="0"
-                        Width="360"
-                        Height="520"
-                        Background="#D9D9D9"
-                        CornerRadius="28"/>
-                <Border Canvas.Left="1335"
-                        Canvas.Top="560"
-                        Width="360"
-                        Height="230"
-                        Background="#D9D9D9"
-                        CornerRadius="28"/>
-            </Canvas>
+        <Grid Width="1770" Height="820" Background="White">
+
+            <Border Width="1650"
+                    Height="750"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="#A8C9E8"
+                    CornerRadius="34">
+
+                <Grid Margin="30">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="105"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="80"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="455"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="/Animal-Spa;component/Asset/ICON-PET.png"
+                                   Width="82"
+                                   Height="82"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Stretch="Uniform"/>
+
+                            <StackPanel Grid.Column="1"
+                                        VerticalAlignment="Center">
+                                <TextBlock Text="SERVICE DETAIL"
+                                           FontSize="40"
+                                           FontWeight="ExtraBold"
+                                           Foreground="#111111"/>
+                                <TextBlock Text="Choose a service and view details of the service"
+                                           FontSize="21"
+                                           Foreground="#202020"
+                                           Margin="0,-6,0,0"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <Border Grid.Column="1"
+                                Height="78"
+                                Background="White"
+                                CornerRadius="24"
+                                VerticalAlignment="Center">
+                            <StackPanel VerticalAlignment="Center"
+                                        Margin="20,0">
+                                <TextBlock Text="PRICING MATRIX"
+                                           FontSize="34"
+                                           FontWeight="ExtraBold"
+                                           Foreground="#111111"/>
+                                <TextBlock Text="Price varies by animal type and weight"
+                                           FontSize="18"
+                                           Foreground="#333333"
+                                           Margin="0,-5,0,0"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1120"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="440"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0"
+                                Background="White"
+                                CornerRadius="28"
+                                Padding="24">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="330"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="360"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border Width="330"
+                                            Height="300"
+                                            Background="#A8C9E8"
+                                            CornerRadius="24"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            ClipToBounds="True">
+                                        <Image Source="/Animal-Spa;component/Asset/ICON-BATH.jpg"
+                                               Stretch="Uniform"/>
+                                    </Border>
+
+                                    <StackPanel Grid.Column="1"
+                                                Margin="20,0,0,0"
+                                                VerticalAlignment="Center">
+                                        <TextBlock x:Name="ServiceNameText"
+                                                   Text="Service"
+                                                   FontSize="38"
+                                                   FontWeight="ExtraBold"
+                                                   Foreground="#111111"
+                                                   HorizontalAlignment="Center"
+                                                   Margin="0,0,0,15"/>
+
+                                        <Border Style="{StaticResource InfoRowStyle}">
+                                            <Grid Margin="16,0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="210"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Text="Animal type"
+                                                           FontSize="25"
+                                                           VerticalAlignment="Center"
+                                                           Foreground="#111111"/>
+                                                <TextBlock x:Name="AnimalTypeText"
+                                                           Grid.Column="1"
+                                                           Text="Choose from table"
+                                                           FontSize="24"
+                                                           Foreground="White"
+                                                           HorizontalAlignment="Right"
+                                                           VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </Border>
+
+                                        <Border Style="{StaticResource InfoRowStyle}">
+                                            <Grid Margin="16,0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="210"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Text="Weight"
+                                                           FontSize="25"
+                                                           VerticalAlignment="Center"
+                                                           Foreground="#111111"/>
+                                                <TextBlock x:Name="WeightText"
+                                                           Grid.Column="1"
+                                                           Text="Choose from table"
+                                                           FontSize="24"
+                                                           Foreground="White"
+                                                           HorizontalAlignment="Right"
+                                                           VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </Border>
+
+                                        <Border Style="{StaticResource InfoRowStyle}">
+                                            <Grid Margin="16,0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="210"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Text="Price"
+                                                           FontSize="25"
+                                                           VerticalAlignment="Center"
+                                                           Foreground="#111111"/>
+                                                <TextBlock x:Name="PriceText"
+                                                           Grid.Column="1"
+                                                           Text="Choose from table"
+                                                           FontSize="24"
+                                                           Foreground="White"
+                                                           HorizontalAlignment="Right"
+                                                           VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </Border>
+
+                                        <Border Style="{StaticResource InfoRowStyle}" Margin="0">
+                                            <Grid Margin="16,0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="210"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Text="Duration"
+                                                           FontSize="25"
+                                                           VerticalAlignment="Center"
+                                                           Foreground="#111111"/>
+                                                <TextBlock x:Name="DurationText"
+                                                           Grid.Column="1"
+                                                           Text="60 mins"
+                                                           FontSize="24"
+                                                           Foreground="White"
+                                                           HorizontalAlignment="Right"
+                                                           VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </Border>
+                                    </StackPanel>
+                                </Grid>
+
+                                <Border Grid.Row="1"
+                                        Background="#A8C9E8"
+                                        CornerRadius="24"
+                                        Padding="22,14"
+                                        Margin="0,10,0,0">
+                                    <StackPanel>
+                                        <TextBlock Text="Service description"
+                                                   FontSize="25"
+                                                   Foreground="#111111"/>
+                                        <TextBlock x:Name="DescriptionText"
+                                                   Text="Select a service to view description."
+                                                   FontSize="22"
+                                                   Foreground="#242424"
+                                                   TextWrapping="Wrap"
+                                                   Margin="0,4,0,0"/>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </Border>
+
+                        <Border Grid.Column="2"
+                                Background="White"
+                                CornerRadius="28"
+                                Padding="12">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="64"/>
+                                    <RowDefinition Height="88"/>
+                                    <RowDefinition Height="88"/>
+                                    <RowDefinition Height="88"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="125"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Row="0" Grid.Column="0" Background="#83B8DE" Margin="4" CornerRadius="8">
+                                    <TextBlock Text="Animal type"
+                                               FontSize="17"
+                                               TextAlignment="Center"
+                                               TextWrapping="Wrap"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                                <Border Grid.Row="0" Grid.Column="1" Background="#83B8DE" Margin="4" CornerRadius="8">
+                                    <TextBlock Text="Under 10kg"
+                                               FontSize="18"
+                                               TextAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                                <Border Grid.Row="0" Grid.Column="2" Background="#83B8DE" Margin="4" CornerRadius="8">
+                                    <TextBlock Text="Over 10kg"
+                                               FontSize="18"
+                                               TextAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+
+                                <Border Grid.Row="1" Grid.Column="0" Background="#EEF5FA" Margin="4" CornerRadius="8">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Image Source="/Animal-Spa;component/Asset/animal/DOG.png" Width="52" Height="52" Stretch="Uniform"/>
+                                        <TextBlock Text="Dog" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                                    </StackPanel>
+                                </Border>
+                                <Button x:Name="DogUnderButton"
+                                        Grid.Row="1" Grid.Column="1"
+                                        Style="{StaticResource PriceCellStyle}"
+                                        Tag="Dog|Under 10kg"
+                                        Click="PriceCell_Click">
+                                    <TextBlock x:Name="DogUnderPrice" Text="120.000đ"/>
+                                </Button>
+                                <Button x:Name="DogOverButton"
+                                        Grid.Row="1" Grid.Column="2"
+                                        Style="{StaticResource PriceCellStyle}"
+                                        Tag="Dog|Over 10kg"
+                                        Click="PriceCell_Click">
+                                    <TextBlock x:Name="DogOverPrice" Text="180.000đ"/>
+                                </Button>
+
+                                <Border Grid.Row="2" Grid.Column="0" Background="#EEF5FA" Margin="4" CornerRadius="8">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Image Source="/Animal-Spa;component/Asset/animal/CAT.png" Width="52" Height="52" Stretch="Uniform"/>
+                                        <TextBlock Text="Cat" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                                    </StackPanel>
+                                </Border>
+                                <Button x:Name="CatUnderButton"
+                                        Grid.Row="2" Grid.Column="1"
+                                        Style="{StaticResource PriceCellStyle}"
+                                        Tag="Cat|Under 10kg"
+                                        Click="PriceCell_Click">
+                                    <TextBlock x:Name="CatUnderPrice" Text="100.000đ"/>
+                                </Button>
+                                <Button x:Name="CatOverButton"
+                                        Grid.Row="2" Grid.Column="2"
+                                        Style="{StaticResource PriceCellStyle}"
+                                        Tag="Cat|Over 10kg"
+                                        Click="PriceCell_Click">
+                                    <TextBlock x:Name="CatOverPrice" Text="150.000đ"/>
+                                </Button>
+
+                                <Border Grid.Row="3" Grid.Column="0" Background="#EEF5FA" Margin="4" CornerRadius="8">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Image Source="/Animal-Spa;component/Asset/animal/HAMSTER.png" Width="52" Height="52" Stretch="Uniform"/>
+                                        <TextBlock Text="Hamster" FontSize="18" FontWeight="SemiBold" VerticalAlignment="Center" Margin="3,0,0,0"/>
+                                    </StackPanel>
+                                </Border>
+                                <Button x:Name="HamsterUnderButton"
+                                        Grid.Row="3" Grid.Column="1"
+                                        Style="{StaticResource PriceCellStyle}"
+                                        Tag="Hamster|Under 10kg"
+                                        Click="PriceCell_Click">
+                                    <TextBlock x:Name="HamsterUnderPrice" Text="70.000đ"/>
+                                </Button>
+                                <Button x:Name="HamsterOverButton"
+                                        Grid.Row="3" Grid.Column="2"
+                                        Style="{StaticResource PriceCellStyle}"
+                                        Tag="Hamster|Over 10kg"
+                                        Click="PriceCell_Click">
+                                    <TextBlock x:Name="HamsterOverPrice" Text="120.000đ"/>
+                                </Button>
+                            </Grid>
+                        </Border>
+                    </Grid>
+
+                    <StackPanel Grid.Row="2"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom">
+                        <Button Content="Cancel"
+                                Background="#D3D3D3"
+                                Style="{StaticResource ActionButtonStyle}"
+                                Margin="0,0,25,0"
+                                Click="Cancel_Click"/>
+                        <Button Content="Save"
+                                Background="#4EA6E8"
+                                Style="{StaticResource ActionButtonStyle}"
+                                Click="Save_Click"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
         </Grid>
     </Viewbox>
 </UserControl>

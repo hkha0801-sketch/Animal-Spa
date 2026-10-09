@@ -6,6 +6,7 @@ namespace Animal_Spa.Components.Receptionist
 {
     public partial class ServiceView : UserControl
     {
+        public event System.Action<string, string, string>? ServiceSelected;
         private readonly Brush _normalBackground =
             new SolidColorBrush(Color.FromRgb(131, 184, 222));
 
@@ -116,6 +117,19 @@ namespace Animal_Spa.Components.Receptionist
                 int.TryParse(button.Tag?.ToString(), out int index))
             {
                 SelectService(index);
+
+                switch (index)
+                {
+                    case 0:
+                        ServiceSelected?.Invoke(Service1Name.Text, Service1Description.Text, Service1Duration.Text);
+                        break;
+                    case 1:
+                        ServiceSelected?.Invoke(Service2Name.Text, Service2Description.Text, Service2Duration.Text);
+                        break;
+                    case 2:
+                        ServiceSelected?.Invoke(Service3Name.Text, Service3Description.Text, Service3Duration.Text);
+                        break;
+                }
             }
         }
 
