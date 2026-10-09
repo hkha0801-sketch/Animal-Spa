@@ -13,6 +13,7 @@ namespace Animal_Spa.Views.Customer
         {
             InitializeComponent();
 
+            Category.SetCustomerMode();
             CustomerDetail.LoadCustomer(MockCustomerId);
             CustomerDetail.AddPetRequested += ShowAddPet;
             AddPet.CancelRequested += HideAddPet;

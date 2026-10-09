@@ -120,8 +120,16 @@ namespace Animal_Spa
 
             if (_selectedRole == "Staff")
             {
-                MainWindow mainWindow = new MainWindow("Receptionist");
-                mainWindow.Show();
+                if (username == "admin" && password == "123456")
+                {
+                    MainWindow receptionistWindow = new MainWindow("Receptionist");
+                    receptionistWindow.Show();
+                    Close();
+                    return;
+                }
+
+                MainWindow staffWindow = new MainWindow("Staff");
+                staffWindow.Show();
                 Close();
                 return;
             }

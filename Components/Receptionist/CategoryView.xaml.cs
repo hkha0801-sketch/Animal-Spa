@@ -24,6 +24,13 @@ namespace Animal_Spa.Components.Receptionist
             ResetCategoryCards();
         }
 
+        public void SetCustomerMode()
+        {
+            AddCategoryButton.Visibility = Visibility.Collapsed;
+            NailCategoryButton.Visibility = Visibility.Visible;
+            ResetCategoryCards();
+        }
+
         private void Category_Click(object sender, RoutedEventArgs e)
         {
             if (sender is not Button button || button.Tag is not string category)
@@ -42,10 +49,12 @@ namespace Animal_Spa.Components.Receptionist
             BathCategoryButton.Background = _normalBackground;
             HairCategoryButton.Background = _normalBackground;
             EarCategoryButton.Background = _normalBackground;
+            NailCategoryButton.Background = _normalBackground;
 
             BathCategoryButton.BorderBrush = Brushes.Transparent;
             HairCategoryButton.BorderBrush = Brushes.Transparent;
             EarCategoryButton.BorderBrush = Brushes.Transparent;
+            NailCategoryButton.BorderBrush = Brushes.Transparent;
         }
     }
 }

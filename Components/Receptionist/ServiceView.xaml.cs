@@ -70,6 +70,19 @@ namespace Animal_Spa.Components.Receptionist
                         "25 mins");
                     break;
 
+                case "Nail Care":
+                    SetServices(
+                        "Basic Nail Trim",
+                        "Simple nail trimming",
+                        "20 mins",
+                        "Nail Grinding",
+                        "Smooth nail finishing",
+                        "30 mins",
+                        "Paw Care",
+                        "Nail + paw care",
+                        "35 mins");
+                    break;
+
                 default:
                     SetServices(
                         "Service 1",

@@ -1,6 +1,7 @@
 using System.Windows;
 using Animal_Spa.Views.Receptionist;
 using Animal_Spa.Views.Customer;
+using Animal_Spa.Views.Staff;
 
 namespace Animal_Spa
 {
@@ -24,8 +25,12 @@ namespace Animal_Spa
                     MainContent.Content = new CustomerDashboard();
                     break;
 
+                case "Staff":
+                    MainContent.Content = new StaffDashboard();
+                    break;
+
                 default:
-                    MainContent.Content = new ReceptionistDashboard();
+                    MainContent.Content = new CustomerDashboard();
                     break;
             }
         }
