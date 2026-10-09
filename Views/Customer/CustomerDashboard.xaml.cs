@@ -16,6 +16,7 @@ namespace Animal_Spa.Views.Customer
             CustomerDetail.LoadCustomer(MockCustomerId);
             CustomerDetail.AddPetRequested += ShowAddPet;
             AddPet.CancelRequested += HideAddPet;
+            Category.CategorySelected += ShowServiceCategory;
         }
 
         private void ShowAddPet(int customerId)
@@ -25,6 +26,16 @@ namespace Animal_Spa.Views.Customer
 
             Dispatcher.BeginInvoke(
                 new Action(() => AddPet.BringIntoView()),
+                DispatcherPriority.Loaded);
+        }
+
+        private void ShowServiceCategory(string category)
+        {
+            Service.LoadCategory(category);
+            Service.Visibility = Visibility.Visible;
+
+            Dispatcher.BeginInvoke(
+                new Action(() => Service.BringIntoView()),
                 DispatcherPriority.Loaded);
         }
 

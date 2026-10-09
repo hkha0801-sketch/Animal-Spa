@@ -39,6 +39,7 @@
             <Border Style="{StaticResource SectionDividerStyle}"/>
 
             <components:ServiceView x:Name="Service"
+                                    Visibility="Collapsed"
                                     Margin="30,0,30,45"/>
 
         </StackPanel>

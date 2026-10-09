@@ -2,9 +2,9 @@ using System.Windows.Controls;
 
 namespace Animal_Spa.Components.Receptionist
 {
-    public partial class ServiceView : UserControl
+    public partial class ServiceDetailView : UserControl
     {
-        public ServiceView()
+        public ServiceDetailView()
         {
             InitializeComponent();
         }

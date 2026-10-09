@@ -7,102 +7,66 @@
              FontFamily="{StaticResource Baloo2}">
 
     <UserControl.Resources>
-
-        <Style x:Key="CategoryCardButton"
-               TargetType="Button">
+        <Style x:Key="CategoryCardButton" TargetType="Button">
             <Setter Property="Width" Value="330"/>
             <Setter Property="Height" Value="410"/>
             <Setter Property="Background" Value="#A9CBE9"/>
-            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="6"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Padding" Value="0"/>
-
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-
                         <Border x:Name="CardBorder"
                                 Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="30">
-
                             <ContentPresenter/>
-
                         </Border>
-
                         <ControlTemplate.Triggers>
-
-                            <Trigger Property="IsMouseOver"
-                                     Value="True">
-                                <Setter TargetName="CardBorder"
-                                        Property="Opacity"
-                                        Value="0.92"/>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="CardBorder" Property="Opacity" Value="0.92"/>
                             </Trigger>
-
-                            <Trigger Property="IsPressed"
-                                     Value="True">
-                                <Setter TargetName="CardBorder"
-                                        Property="Opacity"
-                                        Value="0.82"/>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="CardBorder" Property="Opacity" Value="0.82"/>
                             </Trigger>
-
                         </ControlTemplate.Triggers>
-
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-
         </Style>
 
-        <Style x:Key="AddCategoryButton"
-               TargetType="Button">
+        <Style x:Key="AddCategoryButton" TargetType="Button">
             <Setter Property="Width" Value="330"/>
             <Setter Property="Height" Value="410"/>
             <Setter Property="Background" Value="#D5D5D5"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Padding" Value="0"/>
-
             <Setter Property="Template">
                 <Setter.Value>
-
                     <ControlTemplate TargetType="Button">
-
                         <Border x:Name="AddBorder"
                                 Background="{TemplateBinding Background}"
                                 CornerRadius="30">
-
                             <ContentPresenter HorizontalAlignment="Center"
                                               VerticalAlignment="Center"/>
-
                         </Border>
-
                         <ControlTemplate.Triggers>
-
-                            <Trigger Property="IsMouseOver"
-                                     Value="True">
-                                <Setter TargetName="AddBorder"
-                                        Property="Background"
-                                        Value="#C9C9C9"/>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="AddBorder" Property="Background" Value="#C9C9C9"/>
                             </Trigger>
-
                         </ControlTemplate.Triggers>
-
                     </ControlTemplate>
-
                 </Setter.Value>
             </Setter>
-
         </Style>
-
     </UserControl.Resources>
 
-    <Viewbox Stretch="Uniform"
-             StretchDirection="Both">
-
-        <Grid Width="1770"
-              Height="680"
-              Background="White">
-
+    <Viewbox Stretch="Uniform" StretchDirection="Both">
+        <Grid Width="1770" Height="680" Background="White">
             <Grid.RowDefinitions>
                 <RowDefinition Height="175"/>
                 <RowDefinition Height="450"/>
@@ -114,17 +78,12 @@
                   Height="145"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center">
-
-                <Border CornerRadius="30"
-                        ClipToBounds="True">
-
+                <Border CornerRadius="30" ClipToBounds="True">
                     <Image Source="/Animal-Spa;component/Asset/BACKGROUND-CATEGORY.jpg"
                            Stretch="Fill"/>
-
                 </Border>
 
                 <Grid Margin="45,0">
-
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="150"/>
                         <ColumnDefinition Width="*"/>
@@ -140,28 +99,22 @@
                     <StackPanel Grid.Column="1"
                                 VerticalAlignment="Center"
                                 Margin="5,0,0,0">
-
                         <TextBlock Text="CATEGORY"
                                    FontSize="44"
                                    FontWeight="ExtraBold"
                                    Foreground="#111111"/>
-
                         <TextBlock Text="Choose a service category for your pet"
                                    FontSize="23"
                                    FontWeight="Medium"
                                    Foreground="#202020"
                                    Margin="0,-5,0,0"/>
-
                     </StackPanel>
-
                 </Grid>
-
             </Grid>
 
             <Grid Grid.Row="1"
                   Width="1650"
                   HorizontalAlignment="Center">
-
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="330"/>
                     <ColumnDefinition Width="1*"/>
@@ -172,12 +125,12 @@
                     <ColumnDefinition Width="330"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0"
+                <Button x:Name="BathCategoryButton"
+                        Grid.Column="0"
                         Style="{StaticResource CategoryCardButton}"
-                        Tag="BathAndDry">
-
+                        Tag="Bath &amp; Dry"
+                        Click="Category_Click">
                     <Grid Margin="15">
-
                         <Grid.RowDefinitions>
                             <RowDefinition Height="75"/>
                             <RowDefinition Height="45"/>
@@ -189,14 +142,12 @@
                                 Margin="0,5,0,0"
                                 Background="#82BCE5"
                                 CornerRadius="24">
-
                             <TextBlock Text="Bath &amp; Dry"
                                        FontSize="32"
                                        FontWeight="ExtraBold"
                                        Foreground="#111111"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-
                         </Border>
 
                         <Image Grid.Row="1"
@@ -211,56 +162,18 @@
                                 CornerRadius="24"
                                 Margin="5,0,5,5"
                                 ClipToBounds="True">
-
                             <Image Source="/Animal-Spa;component/Asset/ICON-BATH.jpg"
                                    Stretch="Uniform"/>
-
                         </Border>
-
                     </Grid>
-
                 </Button>
 
-                <Button Grid.Column="2"
-                        Width="330"
-                        Height="410"
-                        Background="#438BDD"
-                        BorderThickness="0"
-                        Cursor="Hand"
-                        Tag="HairTrimming"
-                        Padding="0">
-
-                    <Button.Template>
-
-                        <ControlTemplate TargetType="Button">
-
-                            <Border x:Name="SelectedBorder"
-                                    Background="{TemplateBinding Background}"
-                                    CornerRadius="30">
-
-                                <ContentPresenter/>
-
-                            </Border>
-
-                            <ControlTemplate.Triggers>
-
-                                <Trigger Property="IsMouseOver"
-                                         Value="True">
-
-                                    <Setter TargetName="SelectedBorder"
-                                            Property="Background"
-                                            Value="#4E96E7"/>
-
-                                </Trigger>
-
-                            </ControlTemplate.Triggers>
-
-                        </ControlTemplate>
-
-                    </Button.Template>
-
+                <Button x:Name="HairCategoryButton"
+                        Grid.Column="2"
+                        Style="{StaticResource CategoryCardButton}"
+                        Tag="Hair Trimming"
+                        Click="Category_Click">
                     <Grid Margin="15">
-
                         <Grid.RowDefinitions>
                             <RowDefinition Height="75"/>
                             <RowDefinition Height="45"/>
@@ -272,14 +185,12 @@
                                 Margin="0,5,0,0"
                                 Background="#82BCE5"
                                 CornerRadius="24">
-
                             <TextBlock Text="Hair Trimming"
                                        FontSize="30"
                                        FontWeight="ExtraBold"
                                        Foreground="#111111"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-
                         </Border>
 
                         <Image Grid.Row="1"
@@ -294,22 +205,18 @@
                                 CornerRadius="24"
                                 Margin="5,0,5,5"
                                 ClipToBounds="True">
-
                             <Image Source="/Animal-Spa;component/Asset/ICON-BATH.jpg"
                                    Stretch="Uniform"/>
-
                         </Border>
-
                     </Grid>
-
                 </Button>
 
-                <Button Grid.Column="4"
+                <Button x:Name="EarCategoryButton"
+                        Grid.Column="4"
                         Style="{StaticResource CategoryCardButton}"
-                        Tag="EarCleaning">
-
+                        Tag="Ear Cleaning"
+                        Click="Category_Click">
                     <Grid Margin="15">
-
                         <Grid.RowDefinitions>
                             <RowDefinition Height="75"/>
                             <RowDefinition Height="45"/>
@@ -321,14 +228,12 @@
                                 Margin="0,5,0,0"
                                 Background="#82BCE5"
                                 CornerRadius="24">
-
                             <TextBlock Text="Ear Cleaning"
                                        FontSize="30"
                                        FontWeight="ExtraBold"
                                        Foreground="#111111"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-
                         </Border>
 
                         <Image Grid.Row="1"
@@ -343,22 +248,16 @@
                                 CornerRadius="24"
                                 Margin="5,0,5,5"
                                 ClipToBounds="True">
-
                             <Image Source="/Animal-Spa;component/Asset/ICON-BATH.jpg"
                                    Stretch="Uniform"/>
-
                         </Border>
-
                     </Grid>
-
                 </Button>
 
                 <Button Grid.Column="6"
                         Style="{StaticResource AddCategoryButton}"
                         Tag="AddCategory">
-
                     <Grid>
-
                         <Rectangle Width="110"
                                    Height="28"
                                    RadiusX="14"
@@ -366,7 +265,6 @@
                                    Fill="White"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
-
                         <Rectangle Width="28"
                                    Height="110"
                                    RadiusX="14"
@@ -374,11 +272,8 @@
                                    Fill="White"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
-
                     </Grid>
-
                 </Button>
-
             </Grid>
 
             <Border Grid.Row="2"
@@ -388,9 +283,6 @@
                     CornerRadius="20"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"/>
-
         </Grid>
-
     </Viewbox>
-
 </UserControl>
