@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -10,6 +11,11 @@ namespace Animal_Spa.Views.Receptionist
         public ReceptionistDashboard()
         {
             InitializeComponent();
+
+            if (DesignerProperties.GetIsInDesignMode(this))
+            {
+                return;
+            }
 
             CustomerList.ViewDetailRequested += ShowCustomerDetail;
             CustomerList.AddCustomerRequested += ShowAddCustomer;

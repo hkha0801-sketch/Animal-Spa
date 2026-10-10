@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,6 +26,12 @@ namespace Animal_Spa.Components.Receptionist
         public ServiceDetailView()
         {
             InitializeComponent();
+
+            if (DesignerProperties.GetIsInDesignMode(this))
+            {
+                return;
+            }
+
             SetDefaultPricing();
             ResetSelection();
         }
@@ -80,8 +87,15 @@ namespace Animal_Spa.Components.Receptionist
                 _ => "DOG.png"
             };
 
-            return new BitmapImage(
-                new Uri($"pack://application:,,,/Animal-Spa;component/Asset/animal/{fileName}", UriKind.Absolute));
+            var bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(
+                $"pack://application:,,,/Animal-Spa;component/Asset/animal/{fileName}",
+                UriKind.Absolute);
+            bitmap.CacheOption = BitmapCacheOption.OnLoad;
+            bitmap.EndInit();
+            bitmap.Freeze();
+            return bitmap;
         }
 
         private void ApplyPricingForService(string serviceName)
@@ -169,8 +183,23 @@ namespace Animal_Spa.Components.Receptionist
 
         private void ResetSelection()
         {
-            SelectedAnimalIcon.Source = new BitmapImage(
-                new Uri("pack://application:,,,/Animal-Spa;component/Asset/ICON-PET.png", UriKind.Absolute));
+            try
+            {
+                var bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(
+                    "pack://application:,,,/Animal-Spa;component/Asset/ICON-PET.png",
+                    UriKind.Absolute);
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.EndInit();
+                bitmap.Freeze();
+                SelectedAnimalIcon.Source = bitmap;
+            }
+            catch
+            {
+                SelectedAnimalIcon.Source = null;
+            }
+
             WeightText.Text = "Choose from table";
             PriceText.Text = "Choose from table";
             ResetPriceButtons();

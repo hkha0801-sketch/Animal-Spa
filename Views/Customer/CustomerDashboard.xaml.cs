@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -12,6 +13,11 @@ namespace Animal_Spa.Views.Customer
         public CustomerDashboard()
         {
             InitializeComponent();
+
+            if (DesignerProperties.GetIsInDesignMode(this))
+            {
+                return;
+            }
 
             Category.SetCustomerMode();
             CustomerDetail.LoadCustomer(MockCustomerId);
