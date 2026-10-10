@@ -6,12 +6,12 @@
 
     <UserControl.Resources>
         <Style x:Key="SectionDividerStyle" TargetType="Border">
-            <Setter Property="Width" Value="350"/>
-            <Setter Property="Height" Value="52"/>
+            <Setter Property="Width" Value="260"/>
+            <Setter Property="Height" Value="28"/>
             <Setter Property="Background" Value="#83B7DF"/>
-            <Setter Property="CornerRadius" Value="26"/>
+            <Setter Property="CornerRadius" Value="14"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="0,20,0,35"/>
+            <Setter Property="Margin" Value="0,8,0,12"/>
         </Style>
     </UserControl.Resources>
 
@@ -48,20 +48,23 @@
             <Border Style="{StaticResource SectionDividerStyle}"/>
 
             <components:CategoryView x:Name="Category"
-                                     Margin="30,0,30,0"/>
+                                     Margin="30,0,30,0"
+                                     HorizontalAlignment="Stretch"/>
 
             <Border Style="{StaticResource SectionDividerStyle}"/>
 
             <components:ServiceView x:Name="Service"
                                     Visibility="Collapsed"
-                                    Margin="30,0,30,0"/>
+                                    Margin="30,0,30,0"
+                                    HorizontalAlignment="Stretch"/>
 
             <Border Style="{StaticResource SectionDividerStyle}"
                     Visibility="{Binding ElementName=ServiceDetail, Path=Visibility}"/>
 
             <components:ServiceDetailView x:Name="ServiceDetail"
                                           Visibility="Collapsed"
-                                          Margin="30,0,30,45"/>
+                                          Margin="30,0,30,20"
+                                          HorizontalAlignment="Stretch"/>
 
         </StackPanel>
     </ScrollViewer>

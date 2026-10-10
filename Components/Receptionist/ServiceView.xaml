@@ -4,64 +4,54 @@
              FontFamily="{StaticResource Baloo2}">
 
     <UserControl.Resources>
-
-        <Style x:Key="ServiceCardStyle"
-               TargetType="Button">
-
-            <Setter Property="Width" Value="510"/>
-            <Setter Property="Height" Value="330"/>
+        <Style x:Key="ServiceCardStyle" TargetType="Button">
+            <Setter Property="Width" Value="550"/>
+            <Setter Property="Height" Value="400"/>
             <Setter Property="Background" Value="#83B8DE"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="6"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Padding" Value="0"/>
-
             <Setter Property="Template">
-
                 <Setter.Value>
-
                     <ControlTemplate TargetType="Button">
-
-                        <Border Background="{TemplateBinding Background}"
+                        <Border x:Name="CardBorder"
+                                Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="28">
-
                             <ContentPresenter/>
-
                         </Border>
-
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="CardBorder" Property="Opacity" Value="0.94"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="CardBorder" Property="Opacity" Value="0.84"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
-
                 </Setter.Value>
-
             </Setter>
-
         </Style>
-
     </UserControl.Resources>
 
     <Viewbox Stretch="Uniform">
-
-        <Grid Width="1770"
-              Height="620">
-
-            <Border Width="1650"
-                    Height="550"
+        <Grid Width="1770" Height="720">
+            <Border Width="1770"
+                    Height="690"
                     Background="#A8C9E8"
                     CornerRadius="35"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
 
-                <Grid Margin="35">
-
+                <Grid Margin="30">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="130"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0">
-
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="620"/>
                             <ColumnDefinition Width="*"/>
@@ -74,9 +64,7 @@
                                 HorizontalAlignment="Left"
                                 Background="#83B8DE"
                                 CornerRadius="28">
-
                             <Grid>
-
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="*"/>
@@ -91,21 +79,16 @@
 
                                 <StackPanel Grid.Column="1"
                                             VerticalAlignment="Center">
-
                                     <TextBlock Text="SERVICE LIST"
                                                FontSize="38"
                                                FontWeight="ExtraBold"
                                                Foreground="#111111"/>
-
                                     <TextBlock Text="Select some service"
                                                FontSize="23"
                                                Foreground="#202020"
                                                Margin="0,-5,0,0"/>
-
                                 </StackPanel>
-
                             </Grid>
-
                         </Border>
 
                         <Border Grid.Column="2"
@@ -114,7 +97,6 @@
                                 HorizontalAlignment="Right"
                                 Background="#83B8DE"
                                 CornerRadius="28">
-
                             <TextBlock x:Name="CategoryNameText"
                                        Text="CATEGORY"
                                        FontSize="54"
@@ -122,20 +104,16 @@
                                        Foreground="White"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-
                         </Border>
-
                     </Grid>
 
-                    <Grid Grid.Row="1"
-                          Margin="0,0,0,10">
-
+                    <Grid Grid.Row="1" Margin="0,0,0,10">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="510"/>
-                            <ColumnDefinition Width="25"/>
-                            <ColumnDefinition Width="510"/>
-                            <ColumnDefinition Width="25"/>
-                            <ColumnDefinition Width="510"/>
+                            <ColumnDefinition Width="550"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="550"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="550"/>
                         </Grid.ColumnDefinitions>
 
                         <Button x:Name="ServiceCard1"
@@ -143,94 +121,76 @@
                                 Tag="0"
                                 Style="{StaticResource ServiceCardStyle}"
                                 Click="ServiceCard_Click">
-
                             <Grid Margin="20">
-
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="95"/>
-                                    <RowDefinition Height="145"/>
-                                    <RowDefinition Height="65"/>
+                                    <RowDefinition Height="190"/>
+                                    <RowDefinition Height="70"/>
                                 </Grid.RowDefinitions>
 
                                 <Grid Grid.Row="0">
-
                                     <TextBlock x:Name="Service1Name"
                                                Text="Premium Bath"
                                                FontSize="37"
                                                FontWeight="ExtraBold"
                                                Foreground="#111111"
-                                               VerticalAlignment="Center"/>
-
-                                    <Grid Width="70"
-                                          Height="70"
-                                          HorizontalAlignment="Right">
-
+                                               VerticalAlignment="Center"
+                                               TextWrapping="Wrap"
+                                               Margin="0,0,80,0"/>
+                                    <Grid Width="70" Height="70" HorizontalAlignment="Right">
                                         <Ellipse Fill="#E5E5E5"/>
-
                                         <Ellipse x:Name="Radio1"
                                                  Width="36"
                                                  Height="36"
                                                  Fill="Transparent"
                                                  HorizontalAlignment="Center"
                                                  VerticalAlignment="Center"/>
-
                                     </Grid>
-
                                 </Grid>
 
                                 <Border Grid.Row="1"
                                         Background="#A8C9E8"
                                         CornerRadius="25"
-                                        Padding="20,12">
-
+                                        Padding="22,18">
                                     <TextBlock x:Name="Service1Description"
                                                Text="Deep clean + conditioner"
                                                FontSize="27"
                                                Foreground="#222222"
                                                TextWrapping="Wrap"/>
-
                                 </Border>
 
                                 <Border Grid.Row="2"
-                                        Height="55"
+                                        Height="60"
                                         Background="#A8C9E8"
                                         CornerRadius="25"
                                         VerticalAlignment="Bottom">
-
-                                    <Grid>
-
+                                    <Grid Margin="12,0">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="65"/>
+                                            <ColumnDefinition Width="58"/>
                                             <ColumnDefinition Width="150"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
-
-                                        <TextBlock Text="&#xE823;"
-                                                   FontFamily="Segoe MDL2 Assets"
-                                                   FontSize="34"
-                                                   HorizontalAlignment="Center"
-                                                   VerticalAlignment="Center"
-                                                   Foreground="#111111"/>
-
+                                        <Image Source="/Animal-Spa;component/Asset/ICON-TIME.jpg"
+                                               Width="40"
+                                               Height="40"
+                                               Stretch="Uniform"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
                                         <TextBlock Grid.Column="1"
                                                    Text="Duration"
                                                    FontSize="27"
                                                    VerticalAlignment="Center"
                                                    Foreground="#111111"/>
-
                                         <TextBlock x:Name="Service1Duration"
                                                    Grid.Column="2"
                                                    Text="90 mins"
                                                    FontSize="25"
                                                    VerticalAlignment="Center"
+                                                   HorizontalAlignment="Left"
                                                    Foreground="White"/>
-
                                     </Grid>
-
                                 </Border>
-
                             </Grid>
-
                         </Button>
 
                         <Button x:Name="ServiceCard2"
@@ -238,93 +198,76 @@
                                 Tag="1"
                                 Style="{StaticResource ServiceCardStyle}"
                                 Click="ServiceCard_Click">
-
                             <Grid Margin="20">
-
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="95"/>
-                                    <RowDefinition Height="145"/>
-                                    <RowDefinition Height="65"/>
+                                    <RowDefinition Height="190"/>
+                                    <RowDefinition Height="70"/>
                                 </Grid.RowDefinitions>
 
                                 <Grid Grid.Row="0">
-
                                     <TextBlock x:Name="Service2Name"
                                                Text="Basic Bath"
                                                FontSize="37"
                                                FontWeight="ExtraBold"
                                                Foreground="#111111"
-                                               VerticalAlignment="Center"/>
-
-                                    <Grid Width="70"
-                                          Height="70"
-                                          HorizontalAlignment="Right">
-
+                                               VerticalAlignment="Center"
+                                               TextWrapping="Wrap"
+                                               Margin="0,0,80,0"/>
+                                    <Grid Width="70" Height="70" HorizontalAlignment="Right">
                                         <Ellipse Fill="#E5E5E5"/>
-
                                         <Ellipse x:Name="Radio2"
                                                  Width="36"
                                                  Height="36"
                                                  Fill="Transparent"
                                                  HorizontalAlignment="Center"
                                                  VerticalAlignment="Center"/>
-
                                     </Grid>
-
                                 </Grid>
 
                                 <Border Grid.Row="1"
                                         Background="#A8C9E8"
                                         CornerRadius="25"
-                                        Padding="20,12">
-
+                                        Padding="22,18">
                                     <TextBlock x:Name="Service2Description"
                                                Text="Quick clean + dry"
                                                FontSize="27"
                                                Foreground="#222222"
                                                TextWrapping="Wrap"/>
-
                                 </Border>
 
                                 <Border Grid.Row="2"
-                                        Height="55"
+                                        Height="60"
                                         Background="#A8C9E8"
                                         CornerRadius="25"
                                         VerticalAlignment="Bottom">
-
-                                    <Grid>
-
+                                    <Grid Margin="12,0">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="65"/>
+                                            <ColumnDefinition Width="58"/>
                                             <ColumnDefinition Width="150"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
-
-                                        <TextBlock Text="&#xE823;"
-                                                   FontFamily="Segoe MDL2 Assets"
-                                                   FontSize="34"
-                                                   HorizontalAlignment="Center"
-                                                   VerticalAlignment="Center"
-                                                   Foreground="#111111"/>
-
+                                        <Image Source="/Animal-Spa;component/Asset/ICON-TIME.jpg"
+                                               Width="40"
+                                               Height="40"
+                                               Stretch="Uniform"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
                                         <TextBlock Grid.Column="1"
                                                    Text="Duration"
                                                    FontSize="27"
-                                                   VerticalAlignment="Center"/>
-
+                                                   VerticalAlignment="Center"
+                                                   Foreground="#111111"/>
                                         <TextBlock x:Name="Service2Duration"
                                                    Grid.Column="2"
                                                    Text="60 mins"
                                                    FontSize="25"
                                                    VerticalAlignment="Center"
+                                                   HorizontalAlignment="Left"
                                                    Foreground="White"/>
-
                                     </Grid>
-
                                 </Border>
-
                             </Grid>
-
                         </Button>
 
                         <Button x:Name="ServiceCard3"
@@ -332,104 +275,80 @@
                                 Tag="2"
                                 Style="{StaticResource ServiceCardStyle}"
                                 Click="ServiceCard_Click">
-
                             <Grid Margin="20">
-
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="95"/>
-                                    <RowDefinition Height="145"/>
-                                    <RowDefinition Height="65"/>
+                                    <RowDefinition Height="190"/>
+                                    <RowDefinition Height="70"/>
                                 </Grid.RowDefinitions>
 
                                 <Grid Grid.Row="0">
-
                                     <TextBlock x:Name="Service3Name"
-                                               Text="Bath+Dry Combo"
+                                               Text="Bath + Dry Combo"
                                                FontSize="35"
                                                FontWeight="ExtraBold"
                                                Foreground="#111111"
                                                TextWrapping="Wrap"
-                                               VerticalAlignment="Center"/>
-
-                                    <Grid Width="70"
-                                          Height="70"
-                                          HorizontalAlignment="Right">
-
+                                               VerticalAlignment="Center"
+                                               Margin="0,0,80,0"/>
+                                    <Grid Width="70" Height="70" HorizontalAlignment="Right">
                                         <Ellipse Fill="#E5E5E5"/>
-
                                         <Ellipse x:Name="Radio3"
                                                  Width="36"
                                                  Height="36"
                                                  Fill="Transparent"
                                                  HorizontalAlignment="Center"
                                                  VerticalAlignment="Center"/>
-
                                     </Grid>
-
                                 </Grid>
 
                                 <Border Grid.Row="1"
                                         Background="#A8C9E8"
                                         CornerRadius="25"
-                                        Padding="20,12">
-
+                                        Padding="22,18">
                                     <TextBlock x:Name="Service3Description"
                                                Text="Clean + dry + deodorizing"
                                                FontSize="27"
                                                Foreground="#222222"
                                                TextWrapping="Wrap"/>
-
                                 </Border>
 
                                 <Border Grid.Row="2"
-                                        Height="55"
+                                        Height="60"
                                         Background="#A8C9E8"
                                         CornerRadius="25"
                                         VerticalAlignment="Bottom">
-
-                                    <Grid>
-
+                                    <Grid Margin="12,0">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="65"/>
+                                            <ColumnDefinition Width="58"/>
                                             <ColumnDefinition Width="150"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
-
-                                        <TextBlock Text="&#xE823;"
-                                                   FontFamily="Segoe MDL2 Assets"
-                                                   FontSize="34"
-                                                   HorizontalAlignment="Center"
-                                                   VerticalAlignment="Center"
-                                                   Foreground="#111111"/>
-
+                                        <Image Source="/Animal-Spa;component/Asset/ICON-TIME.jpg"
+                                               Width="40"
+                                               Height="40"
+                                               Stretch="Uniform"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
                                         <TextBlock Grid.Column="1"
                                                    Text="Duration"
                                                    FontSize="27"
-                                                   VerticalAlignment="Center"/>
-
+                                                   VerticalAlignment="Center"
+                                                   Foreground="#111111"/>
                                         <TextBlock x:Name="Service3Duration"
                                                    Grid.Column="2"
                                                    Text="80 mins"
                                                    FontSize="25"
                                                    VerticalAlignment="Center"
+                                                   HorizontalAlignment="Left"
                                                    Foreground="White"/>
-
                                     </Grid>
-
                                 </Border>
-
                             </Grid>
-
                         </Button>
-
                     </Grid>
-
                 </Grid>
-
             </Border>
-
         </Grid>
-
     </Viewbox>
-
 </UserControl>

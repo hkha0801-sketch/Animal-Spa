@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Animal_Spa.Components.Receptionist
 {
@@ -64,9 +65,23 @@ namespace Animal_Spa.Components.Receptionist
             button.Background = _selectedCellBackground;
             button.BorderBrush = _selectedBorder;
 
-            AnimalTypeText.Text = animalType;
+            SelectedAnimalIcon.Source = LoadAnimalIcon(animalType);
             WeightText.Text = weight;
             PriceText.Text = price;
+        }
+
+        private BitmapImage LoadAnimalIcon(string animalType)
+        {
+            string fileName = animalType switch
+            {
+                "Dog" => "DOG.png",
+                "Cat" => "CAT.png",
+                "Hamster" => "HAMSTER.png",
+                _ => "DOG.png"
+            };
+
+            return new BitmapImage(
+                new Uri($"pack://application:,,,/Animal-Spa;component/Asset/animal/{fileName}", UriKind.Absolute));
         }
 
         private void ApplyPricingForService(string serviceName)
@@ -103,6 +118,18 @@ namespace Animal_Spa.Components.Receptionist
 
                 case "Ear Care":
                     SetPricing("110.000đ", "140.000đ", "100.000đ", "130.000đ", "65.000đ", "90.000đ");
+                    break;
+
+                case "Basic Nail Trim":
+                    SetPricing("70.000đ", "90.000đ", "60.000đ", "80.000đ", "40.000đ", "55.000đ");
+                    break;
+
+                case "Nail Grinding":
+                    SetPricing("90.000đ", "120.000đ", "80.000đ", "105.000đ", "50.000đ", "70.000đ");
+                    break;
+
+                case "Paw Care":
+                    SetPricing("120.000đ", "160.000đ", "100.000đ", "140.000đ", "65.000đ", "90.000đ");
                     break;
 
                 default:
@@ -142,7 +169,8 @@ namespace Animal_Spa.Components.Receptionist
 
         private void ResetSelection()
         {
-            AnimalTypeText.Text = "Choose from table";
+            SelectedAnimalIcon.Source = new BitmapImage(
+                new Uri("pack://application:,,,/Animal-Spa;component/Asset/ICON-PET.png", UriKind.Absolute));
             WeightText.Text = "Choose from table";
             PriceText.Text = "Choose from table";
             ResetPriceButtons();
