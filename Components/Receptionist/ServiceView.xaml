@@ -5,7 +5,7 @@
 
     <UserControl.Resources>
         <Style x:Key="ServiceCardStyle" TargetType="Button">
-            <Setter Property="Width" Value="550"/>
+            <Setter Property="Width" Value="500"/>
             <Setter Property="Height" Value="375"/>
             <Setter Property="Background" Value="#83B8DE"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
@@ -41,14 +41,14 @@
 
     <Viewbox Stretch="Uniform">
         <Grid Width="1770" Height="640">
-            <Border Width="1770"
+            <Border Width="1630"
                     Height="610"
                     Background="#A8C9E8"
                     CornerRadius="35"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
 
-                <Grid Margin="30">
+                <Grid Margin="25">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="120"/>
                         <RowDefinition Height="*"/>
@@ -56,13 +56,13 @@
 
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="620"/>
+                            <ColumnDefinition Width="560"/>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="620"/>
+                            <ColumnDefinition Width="560"/>
                         </Grid.ColumnDefinitions>
 
                         <Border Grid.Column="0"
-                                Width="580"
+                                Width="530"
                                 Height="95"
                                 HorizontalAlignment="Left"
                                 Background="#83B8DE"
@@ -95,14 +95,14 @@
                         </Border>
 
                         <Border Grid.Column="2"
-                                Width="560"
+                                Width="530"
                                 Height="95"
                                 HorizontalAlignment="Right"
                                 Background="#83B8DE"
                                 CornerRadius="28">
                             <TextBlock x:Name="CategoryNameText"
                                        Text="CATEGORY"
-                                       FontSize="50"
+                                       FontSize="44"
                                        FontWeight="ExtraBold"
                                        Foreground="White"
                                        HorizontalAlignment="Center"
@@ -112,11 +112,11 @@
 
                     <Grid Grid.Row="1" Margin="0,0,0,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="550"/>
-                            <ColumnDefinition Width="30"/>
-                            <ColumnDefinition Width="550"/>
-                            <ColumnDefinition Width="30"/>
-                            <ColumnDefinition Width="550"/>
+                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="500"/>
                         </Grid.ColumnDefinitions>
 
                         <Button x:Name="ServiceCard1"
@@ -135,7 +135,7 @@
                                 <Grid Grid.Row="0">
                                     <TextBlock x:Name="Service1Name"
                                                Text="Premium Bath"
-                                               FontSize="35"
+                                               FontSize="30"
                                                FontWeight="ExtraBold"
                                                Foreground="#111111"
                                                VerticalAlignment="Center"
@@ -158,7 +158,7 @@
                                         Padding="20,16">
                                     <TextBlock x:Name="Service1Description"
                                                Text="Deep clean + conditioner"
-                                               FontSize="25"
+                                               FontSize="22"
                                                Foreground="#222222"
                                                TextWrapping="Wrap"/>
                                 </Border>
@@ -183,13 +183,13 @@
                                                VerticalAlignment="Center"/>
                                         <TextBlock Grid.Column="1"
                                                    Text="Duration"
-                                                   FontSize="25"
+                                                   FontSize="22"
                                                    VerticalAlignment="Center"
                                                    Foreground="#111111"/>
                                         <TextBlock x:Name="Service1Duration"
                                                    Grid.Column="2"
                                                    Text="90 mins"
-                                                   FontSize="24"
+                                                   FontSize="22"
                                                    VerticalAlignment="Center"
                                                    Foreground="White"/>
                                     </Grid>
@@ -213,7 +213,7 @@
                                 <Grid Grid.Row="0">
                                     <TextBlock x:Name="Service2Name"
                                                Text="Basic Bath"
-                                               FontSize="35"
+                                               FontSize="30"
                                                FontWeight="ExtraBold"
                                                Foreground="#111111"
                                                VerticalAlignment="Center"
@@ -236,7 +236,7 @@
                                         Padding="20,16">
                                     <TextBlock x:Name="Service2Description"
                                                Text="Quick clean + dry"
-                                               FontSize="25"
+                                               FontSize="22"
                                                Foreground="#222222"
                                                TextWrapping="Wrap"/>
                                 </Border>
@@ -261,13 +261,13 @@
                                                VerticalAlignment="Center"/>
                                         <TextBlock Grid.Column="1"
                                                    Text="Duration"
-                                                   FontSize="25"
+                                                   FontSize="22"
                                                    VerticalAlignment="Center"
                                                    Foreground="#111111"/>
                                         <TextBlock x:Name="Service2Duration"
                                                    Grid.Column="2"
                                                    Text="60 mins"
-                                                   FontSize="24"
+                                                   FontSize="22"
                                                    VerticalAlignment="Center"
                                                    Foreground="White"/>
                                     </Grid>
@@ -291,7 +291,7 @@
                                 <Grid Grid.Row="0">
                                     <TextBlock x:Name="Service3Name"
                                                Text="Bath + Dry Combo"
-                                               FontSize="33"
+                                               FontSize="30"
                                                FontWeight="ExtraBold"
                                                Foreground="#111111"
                                                VerticalAlignment="Center"
@@ -314,7 +314,7 @@
                                         Padding="20,16">
                                     <TextBlock x:Name="Service3Description"
                                                Text="Clean + dry + deodorizing"
-                                               FontSize="25"
+                                               FontSize="22"
                                                Foreground="#222222"
                                                TextWrapping="Wrap"/>
                                 </Border>
@@ -339,13 +339,13 @@
                                                VerticalAlignment="Center"/>
                                         <TextBlock Grid.Column="1"
                                                    Text="Duration"
-                                                   FontSize="25"
+                                                   FontSize="22"
                                                    VerticalAlignment="Center"
                                                    Foreground="#111111"/>
                                         <TextBlock x:Name="Service3Duration"
                                                    Grid.Column="2"
                                                    Text="80 mins"
-                                                   FontSize="24"
+                                                   FontSize="22"
                                                    VerticalAlignment="Center"
                                                    Foreground="White"/>
                                     </Grid>
