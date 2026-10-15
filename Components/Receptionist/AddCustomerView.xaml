@@ -8,7 +8,7 @@
 
     <UserControl.Resources>
         <Style x:Key="FieldLabelStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="27"/>
+            <Setter Property="FontSize" Value="24"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Foreground" Value="#202020"/>
             <Setter Property="Margin" Value="0,0,0,6"/>
@@ -17,7 +17,7 @@
         <Style x:Key="ActionButtonStyle" TargetType="Button">
             <Setter Property="Height" Value="58"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontSize" Value="24"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Cursor" Value="Hand"/>
@@ -51,7 +51,7 @@
                 <TextBlock Canvas.Left="70"
                            Canvas.Top="18"
                            Text="ADD CUSTOMER"
-                           FontSize="28"
+                                   FontSize="36"
                            FontWeight="SemiBold"
                            Foreground="#6C6C6C"/>
 
@@ -92,7 +92,7 @@
                                            Foreground="#8AA7B8"
                                            HorizontalAlignment="Center"/>
                                 <TextBlock Text="Upload Your Photo"
-                                           FontSize="24"
+                                           FontSize="22"
                                            FontWeight="SemiBold"
                                            Foreground="#8AA7B8"
                                            HorizontalAlignment="Center"
