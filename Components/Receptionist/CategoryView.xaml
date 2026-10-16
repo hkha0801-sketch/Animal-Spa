@@ -8,7 +8,7 @@
 
     <UserControl.Resources>
         <Style x:Key="CategoryCardButton" TargetType="Button">
-            <Setter Property="Width" Value="360"/>
+            <Setter Property="Width" Value="340"/>
             <Setter Property="Height" Value="410"/>
             <Setter Property="Background" Value="#A9CBE9"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
@@ -39,7 +39,7 @@
         </Style>
 
         <Style x:Key="AddCategoryButton" TargetType="Button">
-            <Setter Property="Width" Value="360"/>
+            <Setter Property="Width" Value="340"/>
             <Setter Property="Height" Value="410"/>
             <Setter Property="Background" Value="#D5D5D5"/>
             <Setter Property="BorderThickness" Value="0"/>
@@ -73,7 +73,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0"
-                  Width="1770"
+                  Width="1630"
                   Height="145"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center">
@@ -99,11 +99,11 @@
                                 VerticalAlignment="Center"
                                 Margin="5,0,0,0">
                         <TextBlock Text="CATEGORY"
-                                   FontSize="44"
+                                   FontSize="36"
                                    FontWeight="ExtraBold"
                                    Foreground="#111111"/>
                         <TextBlock Text="Choose a service category for your pet"
-                                   FontSize="23"
+                                   FontSize="22"
                                    FontWeight="Medium"
                                    Foreground="#202020"
                                    Margin="0,-5,0,0"/>
@@ -112,16 +112,16 @@
             </Grid>
 
             <Grid Grid.Row="1"
-                  Width="1710"
+                  Width="1630"
                   HorizontalAlignment="Center">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="360"/>
+                    <ColumnDefinition Width="340"/>
                     <ColumnDefinition Width="90"/>
-                    <ColumnDefinition Width="360"/>
+                    <ColumnDefinition Width="340"/>
                     <ColumnDefinition Width="90"/>
-                    <ColumnDefinition Width="360"/>
+                    <ColumnDefinition Width="340"/>
                     <ColumnDefinition Width="90"/>
-                    <ColumnDefinition Width="360"/>
+                    <ColumnDefinition Width="340"/>
                 </Grid.ColumnDefinitions>
 
                 <Button x:Name="BathCategoryButton"
@@ -142,7 +142,7 @@
                                 Background="#82BCE5"
                                 CornerRadius="24">
                             <TextBlock Text="Bath &amp; Dry"
-                                       FontSize="32"
+                                       FontSize="28"
                                        FontWeight="ExtraBold"
                                        Foreground="#111111"
                                        HorizontalAlignment="Center"
@@ -185,7 +185,7 @@
                                 Background="#82BCE5"
                                 CornerRadius="24">
                             <TextBlock Text="Hair Trimming"
-                                       FontSize="30"
+                                       FontSize="28"
                                        FontWeight="ExtraBold"
                                        Foreground="#111111"
                                        HorizontalAlignment="Center"
@@ -228,7 +228,7 @@
                                 Background="#82BCE5"
                                 CornerRadius="24">
                             <TextBlock Text="Ear Cleaning"
-                                       FontSize="30"
+                                       FontSize="28"
                                        FontWeight="ExtraBold"
                                        Foreground="#111111"
                                        HorizontalAlignment="Center"
@@ -294,7 +294,7 @@
                                 Background="#82BCE5"
                                 CornerRadius="24">
                             <TextBlock Text="Nail Care"
-                                       FontSize="30"
+                                       FontSize="28"
                                        FontWeight="ExtraBold"
                                        Foreground="#111111"
                                        HorizontalAlignment="Center"

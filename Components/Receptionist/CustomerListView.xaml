@@ -80,7 +80,7 @@
                             <StackPanel VerticalAlignment="Center"
                                         Margin="25,0,0,0">
                                 <TextBlock Text="KHA BÙI"
-                                           FontSize="54"
+                                           FontSize="48"
                                            FontWeight="ExtraBold"
                                            Foreground="#111111"/>
 
@@ -90,7 +90,7 @@
                                         Padding="11,3"
                                         Margin="0,4,0,0">
                                     <TextBlock Text="Receptionist"
-                                               FontSize="30"
+                                               FontSize="24"
                                                FontWeight="SemiBold"
                                                Foreground="#111111"/>
                                 </Border>
@@ -101,7 +101,7 @@
                                     Width="230"
                                     Height="58"
                                     HorizontalAlignment="Right"
-                                    FontSize="27"
+                                    FontSize="24"
                                     Padding="8,0"
                                     Style="{StaticResource RoundedButtonStyle}"
                                     Click="AddCustomer_Click"/>
@@ -197,7 +197,7 @@
 
                                             <TextBlock Grid.Row="1"
                                                    Text="{Binding Name}"
-                                                   FontSize="50"
+                                                   FontSize="38"
                                                    FontWeight="ExtraBold"
                                                    Foreground="#111111"
                                                    HorizontalAlignment="Center"
@@ -205,7 +205,7 @@
 
                                             <TextBlock Grid.Row="2"
                                                    Text="{Binding Phone}"
-                                                   FontSize="28"
+                                                   FontSize="22"
                                                    Foreground="#111111"
                                                    HorizontalAlignment="Center"/>
 
@@ -218,7 +218,7 @@
                                                    Height="25"
                                                    Stretch="Uniform"/>
                                                 <TextBlock Text="{Binding PetCount, StringFormat={}x{0}}"
-                                                       FontSize="30"
+                                                       FontSize="24"
                                                        FontWeight="SemiBold"
                                                        Margin="5,-2,0,0"/>
                                             </StackPanel>
@@ -230,7 +230,7 @@
                                                 Margin="0,5,0,0"
                                                 Background="White"
                                                 Foreground="#303030"
-                                                FontSize="28"
+                                                FontSize="22"
                                                 BorderThickness="0"
                                                 Cursor="Hand"
                                                 Click="ViewDetail_Click">
@@ -263,7 +263,7 @@
                            Canvas.Top="700"
                            Width="500"
                            Text="No customers found."
-                           FontSize="30"
+                           FontSize="24"
                            FontWeight="SemiBold"
                            TextAlignment="Center"
                            Foreground="#2F5E7E"

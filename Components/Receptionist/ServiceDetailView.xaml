@@ -16,7 +16,7 @@
             <Setter Property="Background" Value="#A8C9E8"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="4"/>
-            <Setter Property="FontSize" Value="23"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="Foreground" Value="#151515"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Margin" Value="4"/>
@@ -43,11 +43,11 @@
         </Style>
 
         <Style x:Key="ActionButtonStyle" TargetType="Button">
-            <Setter Property="Width" Value="210"/>
-            <Setter Property="Height" Value="64"/>
+            <Setter Property="Width" Value="190"/>
+            <Setter Property="Height" Value="58"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontSize" Value="24"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
@@ -75,7 +75,7 @@
 
     <Viewbox Stretch="Uniform">
         <Grid Width="1770" Height="810" Background="White">
-            <Border Width="1770"
+            <Border Width="1630"
                     Height="780"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
@@ -89,8 +89,8 @@
                         <RowDefinition Height="70"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1190"/>
-                        <ColumnDefinition Width="26"/>
+                        <ColumnDefinition Width="1070"/>
+                        <ColumnDefinition Width="24"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
@@ -110,7 +110,7 @@
                         <StackPanel Grid.Column="1"
                                     VerticalAlignment="Center">
                             <TextBlock Text="SERVICE DETAIL"
-                                       FontSize="40"
+                                       FontSize="36"
                                        FontWeight="ExtraBold"
                                        Foreground="#111111"/>
                             <TextBlock Text="Choose a service and view details of the service"
@@ -127,7 +127,7 @@
                             Padding="18,8">
                         <StackPanel VerticalAlignment="Center">
                             <TextBlock Text="PRICING MATRIX"
-                                       FontSize="34"
+                                       FontSize="30"
                                        FontWeight="ExtraBold"
                                        Foreground="#111111"/>
                             <TextBlock Text="Price varies by animal type and weight"
@@ -150,7 +150,7 @@
 
                             <Grid Grid.Row="0">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="380"/>
+                                    <ColumnDefinition Width="340"/>
                                     <ColumnDefinition Width="28"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
@@ -174,7 +174,7 @@
                                     <TextBlock x:Name="ServiceNameText"
                                                Grid.Row="0"
                                                Text="Bath &amp; Dry"
-                                               FontSize="38"
+                                               FontSize="34"
                                                FontWeight="ExtraBold"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
@@ -236,7 +236,7 @@
 
                                             <TextBlock Grid.Column="1"
                                                        Text="Price"
-                                                       FontSize="25"
+                                                       FontSize="22"
                                                        VerticalAlignment="Center"
                                                        Foreground="#111111"/>
 
@@ -268,7 +268,7 @@
 
                                             <TextBlock Grid.Column="1"
                                                        Text="Duration"
-                                                       FontSize="25"
+                                                       FontSize="22"
                                                        VerticalAlignment="Center"
                                                        Foreground="#111111"/>
 
@@ -292,7 +292,7 @@
                                     Padding="24,18">
                                 <StackPanel>
                                     <TextBlock Text="Service description"
-                                               FontSize="29"
+                                               FontSize="24"
                                                Foreground="#111111"/>
                                     <TextBlock x:Name="DescriptionText"
                                                Text="Service description"

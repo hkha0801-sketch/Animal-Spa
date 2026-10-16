@@ -8,7 +8,7 @@
 
     <UserControl.Resources>
         <Style x:Key="FieldLabelStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontSize" Value="24"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Foreground" Value="#202020"/>
             <Setter Property="Margin" Value="0,0,0,7"/>
@@ -17,7 +17,7 @@
         <Style x:Key="ActionButtonStyle" TargetType="Button">
             <Setter Property="Height" Value="60"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="FontSize" Value="24"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Cursor" Value="Hand"/>
@@ -97,7 +97,7 @@
                 <TextBlock Canvas.Left="70"
                            Canvas.Top="18"
                            Text="ADD PET"
-                           FontSize="28"
+                                   FontSize="36"
                            FontWeight="SemiBold"
                            Foreground="#6C6C6C"/>
 
@@ -261,7 +261,7 @@
                                            Foreground="#8AA7B8"
                                            HorizontalAlignment="Center"/>
                                 <TextBlock Text="Upload Pet Photo"
-                                           FontSize="20"
+                                           FontSize="22"
                                            Foreground="#7B939F"
                                            HorizontalAlignment="Center"
                                            Margin="0,8,0,0"/>
