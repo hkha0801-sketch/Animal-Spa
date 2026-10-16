@@ -25,6 +25,7 @@ namespace Animal_Spa.Views.Customer
             AddPet.CancelRequested += HideAddPet;
             Category.CategorySelected += ShowServiceCategory;
             Service.ServiceSelected += ShowServiceDetail;
+            ServiceDetail.ServiceChosen += _ => HideServiceDetail();
             ServiceDetail.CloseRequested += HideServiceDetail;
         }
 

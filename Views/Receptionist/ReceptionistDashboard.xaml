@@ -56,7 +56,8 @@
                                      Margin="30,0,30,0"
                                      HorizontalAlignment="Stretch"/>
 
-            <Border Style="{StaticResource SectionDividerStyle}"/>
+            <Border Style="{StaticResource SectionDividerStyle}"
+                    Visibility="{Binding ElementName=Service, Path=Visibility}"/>
 
             <components:ServiceView x:Name="Service"
                                     Visibility="Collapsed"
@@ -68,8 +69,22 @@
 
             <components:ServiceDetailView x:Name="ServiceDetail"
                                           Visibility="Collapsed"
-                                          Margin="30,0,30,20"
+                                          Margin="30,0,30,0"
                                           HorizontalAlignment="Stretch"/>
+
+            <Border Style="{StaticResource SectionDividerStyle}"/>
+
+            <components:BookingView x:Name="Booking"
+                                    Margin="30,0,30,0"
+                                    HorizontalAlignment="Stretch"/>
+
+            <Border Style="{StaticResource SectionDividerStyle}"
+                    Visibility="{Binding ElementName=RoomStaff, Path=Visibility}"/>
+
+            <components:RoomStaffView x:Name="RoomStaff"
+                                      Visibility="Collapsed"
+                                      Margin="30,0,30,20"
+                                      HorizontalAlignment="Stretch"/>
 
         </StackPanel>
     </ScrollViewer>

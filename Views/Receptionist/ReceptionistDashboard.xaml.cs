@@ -25,7 +25,11 @@ namespace Animal_Spa.Views.Receptionist
             AddPet.CancelRequested += HideAddPet;
             Category.CategorySelected += ShowServiceCategory;
             Service.ServiceSelected += ShowServiceDetail;
+            ServiceDetail.ServiceChosen += AddServiceToBooking;
             ServiceDetail.CloseRequested += HideServiceDetail;
+            Booking.SaveRequested += ShowRoomStaff;
+            RoomStaff.CancelRequested += HideRoomStaff;
+            RoomStaff.Confirmed += CompleteBooking;
         }
 
         private void ShowAddCustomer()
@@ -54,6 +58,7 @@ namespace Animal_Spa.Views.Receptionist
             AddPet.Visibility = Visibility.Collapsed;
 
             CustomerDetail.LoadCustomer(customerId);
+            Booking.SetCustomer(customerId, CustomerDetail.CurrentCustomerName);
             CustomerDetail.Visibility = Visibility.Visible;
 
             Dispatcher.BeginInvoke(
@@ -76,6 +81,7 @@ namespace Animal_Spa.Views.Receptionist
 
         private void ShowServiceCategory(string category)
         {
+            RoomStaff.Visibility = Visibility.Collapsed;
             ServiceDetail.Visibility = Visibility.Collapsed;
             Service.LoadCategory(category);
             Service.Visibility = Visibility.Visible;
@@ -87,11 +93,54 @@ namespace Animal_Spa.Views.Receptionist
 
         private void ShowServiceDetail(string name, string description, string duration)
         {
+            RoomStaff.Visibility = Visibility.Collapsed;
             ServiceDetail.LoadService(name, description, duration);
             ServiceDetail.Visibility = Visibility.Visible;
 
             Dispatcher.BeginInvoke(
                 new Action(() => ServiceDetail.BringIntoView()),
+                DispatcherPriority.Loaded);
+        }
+
+
+        private void AddServiceToBooking(Animal_Spa.Models.BookingServiceItem item)
+        {
+            RoomStaff.Visibility = Visibility.Collapsed;
+            Booking.AddService(item);
+            ServiceDetail.Visibility = Visibility.Collapsed;
+
+            Dispatcher.BeginInvoke(
+                new Action(() => Booking.BringIntoView()),
+                DispatcherPriority.Loaded);
+        }
+
+
+        private void ShowRoomStaff()
+        {
+            RoomStaff.PrepareSelection();
+            RoomStaff.Visibility = Visibility.Visible;
+
+            Dispatcher.BeginInvoke(
+                new Action(() => RoomStaff.BringIntoView()),
+                DispatcherPriority.Loaded);
+        }
+
+        private void HideRoomStaff()
+        {
+            RoomStaff.Visibility = Visibility.Collapsed;
+
+            Dispatcher.BeginInvoke(
+                new Action(() => Booking.BringIntoView()),
+                DispatcherPriority.Loaded);
+        }
+
+        private void CompleteBooking()
+        {
+            RoomStaff.Visibility = Visibility.Collapsed;
+            Booking.ClearBooking();
+
+            Dispatcher.BeginInvoke(
+                new Action(() => Booking.BringIntoView()),
                 DispatcherPriority.Loaded);
         }
 

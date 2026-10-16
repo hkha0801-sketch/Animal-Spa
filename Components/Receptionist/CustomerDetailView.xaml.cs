@@ -11,6 +11,7 @@ namespace Animal_Spa.Components.Receptionist
         public event Action<int>? AddPetRequested;
 
         public int? CurrentCustomerId { get; private set; }
+        public string CurrentCustomerName { get; private set; } = string.Empty;
 
         public CustomerDetailView()
         {
@@ -21,6 +22,7 @@ namespace Animal_Spa.Components.Receptionist
         {
             CustomerDetailItem customer = BuildMockCustomer(customerId);
             CurrentCustomerId = customer.Id;
+            CurrentCustomerName = customer.Name;
 
             CustomerNameText.Text = customer.Name;
             CustomerPhoneText.Text = customer.Phone;

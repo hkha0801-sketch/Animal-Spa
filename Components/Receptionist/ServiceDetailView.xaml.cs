@@ -5,6 +5,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Animal_Spa.Models;
+using System.Linq;
 
 namespace Animal_Spa.Components.Receptionist
 {
@@ -20,8 +22,12 @@ namespace Animal_Spa.Components.Receptionist
             new SolidColorBrush(Color.FromRgb(57, 126, 214));
 
         private readonly Dictionary<string, string> _currentPrices = new();
+        private string _selectedAnimalType = string.Empty;
+        private string _selectedWeight = string.Empty;
+        private string _selectedPrice = string.Empty;
 
         public event Action? CloseRequested;
+        public event Action<BookingServiceItem>? ServiceChosen;
 
         public ServiceDetailView()
         {
@@ -71,6 +77,10 @@ namespace Animal_Spa.Components.Receptionist
             ResetPriceButtons();
             button.Background = _selectedCellBackground;
             button.BorderBrush = _selectedBorder;
+
+            _selectedAnimalType = animalType;
+            _selectedWeight = weight;
+            _selectedPrice = price;
 
             SelectedAnimalIcon.Source = LoadAnimalIcon(animalType);
             WeightText.Text = weight;
@@ -200,6 +210,10 @@ namespace Animal_Spa.Components.Receptionist
                 SelectedAnimalIcon.Source = null;
             }
 
+            _selectedAnimalType = string.Empty;
+            _selectedWeight = string.Empty;
+            _selectedPrice = string.Empty;
+
             WeightText.Text = "Choose from table";
             PriceText.Text = "Choose from table";
             ResetPriceButtons();
@@ -229,9 +243,34 @@ namespace Animal_Spa.Components.Receptionist
             CloseRequested?.Invoke();
         }
 
-        private void Save_Click(object sender, RoutedEventArgs e)
+        private void Choose_Click(object sender, RoutedEventArgs e)
         {
-            CloseRequested?.Invoke();
+            if (string.IsNullOrWhiteSpace(_selectedAnimalType) ||
+                string.IsNullOrWhiteSpace(_selectedWeight) ||
+                string.IsNullOrWhiteSpace(_selectedPrice))
+            {
+                MessageBox.Show(
+                    "Please choose an animal type and weight from the pricing matrix.",
+                    "Animal Spa",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                return;
+            }
+
+            string digits = new string(_selectedPrice.Where(char.IsDigit).ToArray());
+            decimal.TryParse(digits, out decimal priceValue);
+
+            ServiceChosen?.Invoke(new BookingServiceItem
+            {
+                ServiceName = ServiceNameText.Text,
+                Description = DescriptionText.Text,
+                Duration = DurationText.Text,
+                AnimalType = _selectedAnimalType,
+                Weight = _selectedWeight,
+                PriceText = _selectedPrice,
+                PriceValue = priceValue,
+                ServiceIcon = "/Animal-Spa;component/Asset/ICON-BATH.jpg"
+            });
         }
     }
 }

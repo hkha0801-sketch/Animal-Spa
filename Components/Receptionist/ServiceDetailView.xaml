@@ -440,10 +440,10 @@
                                 Style="{StaticResource ActionButtonStyle}"
                                 Margin="0,0,28,0"
                                 Click="Cancel_Click"/>
-                        <Button Content="Save"
+                        <Button Content="Choose"
                                 Background="#4EA6E8"
                                 Style="{StaticResource ActionButtonStyle}"
-                                Click="Save_Click"/>
+                                Click="Choose_Click"/>
                     </StackPanel>
                 </Grid>
             </Border>
