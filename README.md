@@ -22,3 +22,7 @@ Designer stability fix:
 - Dashboard constructors skip runtime-only setup in Visual Studio Designer.
 - Image loading in ServiceDetailView is guarded and cached safely.
 - AddCustomer/AddPet skip runtime image initialization at design time.
+
+## Reusable UI components
+
+See [UI component architecture and visual acceptance checks](docs/UI-COMPONENTS.md) for PhotoUpload, ServiceCard, dependency properties, data templates, and shared styles.

@@ -1,0 +1,87 @@
+<UserControl x:Class="Animal_Spa.Components.Shared.ServiceCard"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="Root"
+ FontFamily="{StaticResource Baloo2}">
+ <UserControl.Resources>
+  <ResourceDictionary>
+   <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="/Animal-Spa;component/Components/Shared/ComponentStyles.xaml"/>
+   </ResourceDictionary.MergedDictionaries>
+  </ResourceDictionary>
+ </UserControl.Resources>
+                        <Button x:Name="CardButton"
+                                Style="{StaticResource ServiceCardStyle}"
+                                VerticalAlignment="Top"
+                                Click="Card_Click">
+                            <Grid Margin="18">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="80"/>
+                                    <RowDefinition Height="170"/>
+                                    <RowDefinition Height="65"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0">
+                                    <TextBlock
+                                               Text="{Binding ServiceName, ElementName=Root}"
+                                               FontSize="{Binding TitleFontSize, ElementName=Root}"
+                                               FontWeight="ExtraBold"
+                                               Foreground="#111111"
+                                               VerticalAlignment="Center"
+                                               TextWrapping="Wrap"
+                                               Margin="0,0,80,0"/>
+                                    <Grid Width="66" Height="66" HorizontalAlignment="Right">
+                                        <Ellipse Fill="#E5E5E5"/>
+                                        <Ellipse x:Name="Radio1"
+                                                 Width="34"
+                                                 Height="34"
+                                                 Fill="Transparent"
+                                                 HorizontalAlignment="Center"
+                                                 VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Grid>
+
+                                <Border Grid.Row="1"
+                                        Background="#A8C9E8"
+                                        CornerRadius="24"
+                                        Padding="20,16">
+                                    <TextBlock
+                                               Text="{Binding Description, ElementName=Root}"
+                                               FontSize="25"
+                                               Foreground="#222222"
+                                               TextWrapping="Wrap"/>
+                                </Border>
+
+                                <Border Grid.Row="2"
+                                        Height="56"
+                                        Background="#A8C9E8"
+                                        CornerRadius="24"
+                                        Margin="0,9,0,0"
+                                        VerticalAlignment="Top">
+                                    <Grid Margin="12,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="52"/>
+                                            <ColumnDefinition Width="145"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="/Animal-Spa;component/Asset/ICON-TIME.jpg"
+                                               Width="36"
+                                               Height="36"
+                                               Stretch="Uniform"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                        <TextBlock Grid.Column="1"
+                                                   Text="Duration"
+                                                   FontSize="25"
+                                                   VerticalAlignment="Center"
+                                                   Foreground="#111111"/>
+                                        <TextBlock
+                                                   Grid.Column="2"
+                                                   Text="{Binding Duration, ElementName=Root}"
+                                                   FontSize="24"
+                                                   VerticalAlignment="Center"
+                                                   Foreground="White"/>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </Button>
+</UserControl>
